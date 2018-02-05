@@ -3,3 +3,9 @@ D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\b
 D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\obj\Debug\Ly.ProjectManagement.Domain.csproj.CoreCompileInputs.cache
 D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\obj\Debug\Ly.ProjectManagement.Domain.dll
 D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\obj\Debug\Ly.ProjectManagement.Domain.pdb
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\bin\Debug\Ly.ProjectManagement.Domain.dll
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\bin\Debug\Ly.ProjectManagement.Domain.pdb
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\obj\Debug\Ly.ProjectManagement.Domain.csprojResolveAssemblyReference.cache
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\obj\Debug\Ly.ProjectManagement.Domain.csproj.CoreCompileInputs.cache
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\obj\Debug\Ly.ProjectManagement.Domain.dll
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Domain\obj\Debug\Ly.ProjectManagement.Domain.pdb

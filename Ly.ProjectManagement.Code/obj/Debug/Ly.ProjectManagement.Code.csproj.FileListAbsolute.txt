@@ -39,3 +39,12 @@ D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj
 D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj\Debug\Ly.ProjectManagement.Code.csproj.CoreCompileInputs.cache
 D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj\Debug\Ly.ProjectManagement.Code.dll
 D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj\Debug\Ly.ProjectManagement.Code.pdb
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\bin\Debug\Ly.ProjectManagement.Code.dll.config
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\bin\Debug\Ly.ProjectManagement.Code.dll
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\bin\Debug\Ly.ProjectManagement.Code.pdb
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\bin\Debug\log4net.dll
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\bin\Debug\log4net.xml
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj\Debug\Ly.ProjectManagement.Code.csprojResolveAssemblyReference.cache
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj\Debug\Ly.ProjectManagement.Code.csproj.CoreCompileInputs.cache
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj\Debug\Ly.ProjectManagement.Code.dll
+D:\GitHub\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.Code\obj\Debug\Ly.ProjectManagement.Code.pdb
