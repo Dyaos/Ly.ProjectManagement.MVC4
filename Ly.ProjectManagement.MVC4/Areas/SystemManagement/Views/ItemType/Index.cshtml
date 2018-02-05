@@ -1,0 +1,138 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script>
+    var itemGrid = {
+        initGrid: function () {
+            itemGrid.initControls();
+            var $gridList = $("#gridList");
+            $gridList.dataGrid({
+                treeGrid: true,
+                treeGridModel: "adjacency",
+                ExpandColumn: "itemEnCode",
+                url: '/SystemManagement/ItemType/GetTreeGridJson?',
+                height: $(window).height() - 130,
+                pager: "#pager",
+                rowNum: 20,
+                rowList: [20, 30, 40],
+                viewrecords: true,
+                colModel: [
+                    { label: "guid", name: "itemGuid", hidden: true, key: true },
+                    { label: '名称', name: 'itemName', width: 150, align: 'left' },
+                    { label: '编号', name: 'itemEnCode', width: 150, align: 'left' },
+                    {
+                        label: '创建时间', name: 'createTime', width: 150, align: 'left',
+                        formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+                    },
+                    {
+                        label: '有效', name: 'isEnabled', width: 100, align: 'left',
+                        formatter: function (cellvalue) {
+                            return cellvalue == true ? "<i class=\"fa fa-toggle-on\"></i>" : "<i class=\"fa fa-toggle-off\"></i>";
+                        }
+                    },
+                    { label: '备注', name: 'remarks', width: 150, align: 'left' },
+                ],
+                sortname: "createTime asc"
+            });
+        },
+        btnEdit: function () {
+            $.modalOpen({
+                id: "Form",
+                title: "修改分类",
+                url: "/SystemManagement/ItemType/Form?keyValue=" + itemGrid.getSelectRowGuid(),
+                width: "450px",
+                height: "380px",
+                callBack: function (iframeId) {
+                    top.frames[iframeId].details.submitForm();
+                }
+            });
+        },
+        btnDelete: function () {
+            $.deleteForm({
+                url: "/SystemManagement/ItemType/DeleteForm",
+                param: { keyValue: $("#gridList").jqGridRowValue().itemGuid },
+                success: function () {
+                    $("#gridList").resetSelection();
+                    $("#gridList").trigger("reloadGrid");
+                }
+            })
+        },
+        btnAdd: function () {
+            $.modalOpen({
+                id: "Form",
+                title: "新增分类",
+                url: "/SystemManagement/ItemType/Form",
+                width: "450px",
+                height: "380px",
+                callBack: function (iframeId) {
+                    top.frames[iframeId].details.submitForm();
+                }
+            });
+        },
+        btnDetails: function () {
+            $.modalOpen({
+                id: "Details",
+                title: "查看日志详情",
+                url: "/SystemManagement/ItemType/Details?keyValue=" + itemGrid.getSelectRowGuid(),
+                width: "450px",
+                height: "420px",
+                btn: null,
+            });
+        },
+        getSelectRowGuid: function () {
+            var keyValue = $("#gridList").jqGridRowValue().itemGuid;
+            return keyValue;
+        },
+        initControls: function () {
+
+        }
+    };
+
+    $(function () {
+        itemGrid.initGrid();
+    });
+
+</script>
+
+<div class="topPanel">
+    <div class="toolbar">
+        <div class="btn-group">
+            <a class="btn btn-primary" onclick="$.reload()"><span class="glyphicon glyphicon-refresh"></span></a>
+        </div>
+        <div class="btn-group">
+            <a id="Ly-add" authorize="yes" class="btn btn-primary dropdown-text" onclick="itemGrid.btnAdd()"><i class="fa fa-plus"></i>新建分类</a>
+        </div>
+        <div class="operate">
+            <ul class="nav nav-pills">
+                <li class="first">已选中<span>1</span>项</li>
+                <li><a id="Ly-edit" authorize="yes" onclick="itemGrid.btnEdit()"><i class="fa fa-pencil-square-o"></i>修改分类</a></li>
+                <li><a id="Ly-delete" authorize="yes" onclick="itemGrid.btnDelete()"><i class="fa fa-trash-o"></i>删除分类</a></li>
+                <li><a id="Ly-Details" authorize="yes" onclick="itemGrid.btnDetails()"><i class="fa fa-search-plus"></i>查看分类</a></li>
+            </ul>
+            <a href="javascript:;" class="close"></a>
+        </div>
+        @*<script>$('.toolbar').authorizeButton()</script>*@
+    </div>
+    <div class="search">
+        <table>
+            <tr>
+                <td>
+                    <div class="input-group">
+                        <input id="txt_keyword" type="text" class="form-control" placeholder="名称/编号" style="width: 200px;">
+                        <span class="input-group-btn">
+                            <button id="btn_search" type="button" class="btn  btn-primary"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="gridPanel">
+    <table id="gridList"></table>
+    <div id="pager"></div>
+</div>

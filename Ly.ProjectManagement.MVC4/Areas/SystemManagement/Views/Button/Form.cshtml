@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<script>
+    var details = {
+        getKeyValue: function () {
+            return $.request("keyValue");
+        },
+        initControl: function () {
+            $("#sysModuleGuid").bindSelect({
+                url: "/SystemManagement/Button/GetSelectTreeJson?keyValue=" + details.getKeyValue(),
+                id: "sysModuleGuid",
+                text: "sysModuleName"
+            })
+        },
+        ajaxData: function () {
+            details.initControl();
+            if (!!details.getKeyValue()) {
+                $.ajax({
+                    url: "/SystemManagement/Button/GetFormJson",
+                    data: { keyValue: details.getKeyValue() },
+                    method: "POST",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        console.info(data);
+                        $("#frmModule").formSerialize(data);
+                    }
+                })
+            }
+        },
+        submitForm: function () {
+            if (!$("#frmModule").formValid()) {
+                return false;
+            }
+            $.submitForm({
+                url: "/SystemManagement/Button/SubmitForm?keyValue=" + details.getKeyValue(),
+                param: $("#frmModule").formSerialize(),
+                success: function () {
+                    $.currentWindow().$("#gridList").resetSelection();
+                    $.currentWindow().$("#gridList").trigger("reloadGrid");
+                }
+            })
+        }
+    };
+    $(function () {
+        details.ajaxData();
+    })
+</script>
+
+<form id="frmModule">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">基本信息</a></li>
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">上级</th>
+                    <td class="formValue">
+                        <select id="sysModuleGuid" name="sysModuleGuid" class="form-control required"></select>
+                    </td>
+                    <th class="formTitle">名称</th>
+                    <td class="formValue">
+                        <input id="sysBtnName" name="sysBtnName" type="text" class="form-control required" placeholder="请输入名称" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">按钮事件</th>
+                    <td class="formValue">
+                        <input id="sysBtnEvent" name="sysBtnEvent" type="text" class="form-control required" placeholder="请输入按钮事件" />
+                    </td>
+                    <th class="formTitle">编号</th>
+                    <td class="formValue">
+                        <input id="sysEnCode" name="sysEnCode" type="text" class="form-control required" placeholder="请输入按钮编号" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">图标</th>
+                    <td class="formValue">
+                        <div class="input-group">
+                            <input id="sysModuleIcon" name="sysModuleIcon" type="text" class="form-control" placeholder="请输入图标名称">
+                            <span class="input-group-btn">
+                                <a class="btn  btn-primary"><i class="fa fa-ellipsis-h"></i></a>
+                            </span>
+                        </div>
+                    </td>
+                    <th class="formTitle">排序码</th>
+                    <td class="formValue">
+                        <input id="sortCode" name="sortCode" type="number" value="2" readonly="readonly" class="form-control required" placeholder="请输入排序" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">链接</th>
+                    <td class="formValue">
+                        <input id="sysBtnUrlAddress" name="sysBtnUrlAddress" type="text" class="form-control required" placeholder="请输入链接地址" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        介绍
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="remarks" name="remarks" class="form-control" style="height: 100px;" placeholder="请输入备注"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

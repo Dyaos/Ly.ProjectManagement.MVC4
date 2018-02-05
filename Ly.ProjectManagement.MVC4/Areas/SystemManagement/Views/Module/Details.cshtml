@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+
+<script>
+    var details = {
+        getKeyValue: function () {
+            return $.request("keyValue");
+        },
+        initControl: function () {
+            $("#sysModuleTarget").select2({
+                minimumResultsForSearch: -1
+            });
+            $("#parentGuid").bindSelect({
+                url: "/SystemManagement/Module/GetSelectTreeJson"
+            })
+        },
+        ajaxData: function () {
+            details.initControl();
+            if (!!details.getKeyValue()) {
+                $.ajax({
+                    url: "/SystemManagement/Module/GetFormJson",
+                    data: { keyValue: details.getKeyValue() },
+                    method: "POST",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        console.info(data);
+                        $("#frmModule").formSerialize(data);
+                        $("#frmModule").find("input,.form-control,select").attr('readonly', 'readonly')
+                    }
+                })
+            }
+        }
+    };
+    $(function () {
+        details.ajaxData();
+    })
+</script>
+
+<form id="frmModule">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">基本信息</a></li>
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">上级</th>
+                    <td class="formValue">
+                        <select id="parentGuid" name="parentGuid" class="form-control required">
+                            <option value="0">父节点</option>
+                        </select>
+                    </td>
+                    <th class="formTitle">名称</th>
+                    <td class="formValue">
+                        <input id="sysModuleName" name="sysModuleName" type="text" class="form-control required" placeholder="请输入名称" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">等级</th>
+                    <td class="formValue">
+                        <input id="sysModuleLv" name="sysModuleLv" type="number" min="1" value="1" class="form-control" placeholder="请输入等级" />
+                    </td>
+                    <th class="formTitle">目标</th>
+                    <td class="formValue">
+                        <select id="sysModuleTarget" name="sysModuleTarget" class="form-control required">
+                            <option value="">==请选择==</option>
+                            <option value="expand" title="expand">无页面</option>
+                            <option value="iframe" title="iframe">框架页</option>
+                            <option value="open" title="open">弹出页</option>
+                            <option value="blank" title="blank">新窗口</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">图标</th>
+                    <td class="formValue">
+                        <div class="input-group">
+                            <input id="sysModuleIcon" name="sysModuleIcon" type="text" class="form-control" placeholder="请输入图标名称">
+                            <span class="input-group-btn">
+                                <a class="btn  btn-primary"><i class="fa fa-ellipsis-h"></i></a>
+                            </span>
+                        </div>
+                    </td>
+                    <th class="formTitle">排序码</th>
+                    <td class="formValue">
+                        <input id="sortCode" name="sortCode" type="number" class="form-control required" placeholder="请输入排序" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">链接</th>
+                    <td class="formValue">
+                        <input id="sysModuleUri" name="sysModuleUri" type="text" class="form-control required" placeholder="请输入链接地址" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" style="height: 35px;">选项</th>
+                    <td class="formValue" colspan="3" style="padding-top: 1px;">
+                        <div class="ckbox">
+                            <input id="isMuen" name="isMuen" type="checkbox"><label for="isMuen">菜单</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        介绍
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="remarks" name="remarks" class="form-control" style="height: 100px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

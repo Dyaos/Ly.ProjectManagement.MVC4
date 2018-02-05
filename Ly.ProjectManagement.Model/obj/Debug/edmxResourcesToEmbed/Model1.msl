@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectManagement_DBModelStoreContainer" CdmEntityContainer="ProjectManagement_DBEntities">
+    <EntitySetMapping Name="AccountLoginLog">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.AccountLoginLog">
+        <MappingFragment StoreEntitySet="AccountLoginLog">
+          <ScalarProperty Name="loginIpAddressName1" ColumnName="loginIpAddressName" />
+          <ScalarProperty Name="loginIpAddress1" ColumnName="loginIpAddress" />
+          <ScalarProperty Name="loginDescription" ColumnName="loginDescription" />
+          <ScalarProperty Name="loginResult" ColumnName="loginResult" />
+          <ScalarProperty Name="loginName" ColumnName="loginName" />
+          <ScalarProperty Name="loginTime" ColumnName="loginTime" />
+          <ScalarProperty Name="loginType" ColumnName="loginType" />
+          <ScalarProperty Name="userGuid" ColumnName="userGuid" />
+          <ScalarProperty Name="logGuid" ColumnName="logGuid" />
+          <ScalarProperty Name="logId" ColumnName="logId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Crew">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.Crew">
+        <MappingFragment StoreEntitySet="Crew">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="stuGuid" ColumnName="stuGuid" />
+          <ScalarProperty Name="crewGuid" ColumnName="crewGuid" />
+          <ScalarProperty Name="projectTeamId" ColumnName="projectTeamId" />
+          <ScalarProperty Name="crewId" ColumnName="crewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefemseRoom">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.DefemseRoom">
+        <MappingFragment StoreEntitySet="DefemseRoom">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="instructorGuid" ColumnName="instructorGuid" />
+          <ScalarProperty Name="tsGuid" ColumnName="tsGuid" />
+          <ScalarProperty Name="defemseRoomGuid" ColumnName="defemseRoomGuid" />
+          <ScalarProperty Name="panId" ColumnName="panId" />
+          <ScalarProperty Name="defemseRoomId" ColumnName="defemseRoomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grade">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.Grade">
+        <MappingFragment StoreEntitySet="Grade">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="gradeName" ColumnName="gradeName" />
+          <ScalarProperty Name="gradeGuid" ColumnName="gradeGuid" />
+          <ScalarProperty Name="gradeId" ColumnName="gradeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupLeader">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.GroupLeader">
+        <MappingFragment StoreEntitySet="GroupLeader">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="stuGuid" ColumnName="stuGuid" />
+          <ScalarProperty Name="leaderGuid" ColumnName="leaderGuid" />
+          <ScalarProperty Name="panId" ColumnName="panId" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="groupLeaderId" ColumnName="groupLeaderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoticeDefense">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.NoticeDefense">
+        <MappingFragment StoreEntitySet="NoticeDefense">
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="defenseTime" ColumnName="defenseTime" />
+          <ScalarProperty Name="noticeTime" ColumnName="noticeTime" />
+          <ScalarProperty Name="noticeGuid" ColumnName="noticeGuid" />
+          <ScalarProperty Name="projectTeamId" ColumnName="projectTeamId" />
+          <ScalarProperty Name="defemseRoomId" ColumnName="defemseRoomId" />
+          <ScalarProperty Name="noticeDefenseId" ColumnName="noticeDefenseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperationRecord">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.OperationRecord">
+        <MappingFragment StoreEntitySet="OperationRecord">
+          <ScalarProperty Name="operationTime" ColumnName="operationTime" />
+          <ScalarProperty Name="operatorType" ColumnName="operatorType" />
+          <ScalarProperty Name="operationType" ColumnName="operationType" />
+          <ScalarProperty Name="operationTable" ColumnName="operationTable" />
+          <ScalarProperty Name="operatorGuid" ColumnName="operatorGuid" />
+          <ScalarProperty Name="operationGuid" ColumnName="operationGuid" />
+          <ScalarProperty Name="operationId" ColumnName="operationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="proDesign" ColumnName="proDesign" />
+          <ScalarProperty Name="proDemand" ColumnName="proDemand" />
+          <ScalarProperty Name="proPlan" ColumnName="proPlan" />
+          <ScalarProperty Name="proApproval" ColumnName="proApproval" />
+          <ScalarProperty Name="projectTarget" ColumnName="projectTarget" />
+          <ScalarProperty Name="projectDesc" ColumnName="projectDesc" />
+          <ScalarProperty Name="projectName" ColumnName="projectName" />
+          <ScalarProperty Name="projectGuid" ColumnName="projectGuid" />
+          <ScalarProperty Name="projectTeamId" ColumnName="projectTeamId" />
+          <ScalarProperty Name="projectId" ColumnName="projectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectModule">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.ProjectModule">
+        <MappingFragment StoreEntitySet="ProjectModule">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="testGuid" ColumnName="testGuid" />
+          <ScalarProperty Name="executorGuid" ColumnName="executorGuid" />
+          <ScalarProperty Name="defenceTeacherGuid" ColumnName="defenceTeacherGuid" />
+          <ScalarProperty Name="defenceScore" ColumnName="defenceScore" />
+          <ScalarProperty Name="proModuleLv" ColumnName="proModuleLv" />
+          <ScalarProperty Name="proModuleScore" ColumnName="proModuleScore" />
+          <ScalarProperty Name="proTestStatus" ColumnName="proTestStatus" />
+          <ScalarProperty Name="proModuleStatus" ColumnName="proModuleStatus" />
+          <ScalarProperty Name="proCompletiontime" ColumnName="proCompletiontime" />
+          <ScalarProperty Name="proEndTime" ColumnName="proEndTime" />
+          <ScalarProperty Name="proStartTime" ColumnName="proStartTime" />
+          <ScalarProperty Name="proModuleType" ColumnName="proModuleType" />
+          <ScalarProperty Name="parentModuleGuid" ColumnName="parentModuleGuid" />
+          <ScalarProperty Name="proModuleGuid" ColumnName="proModuleGuid" />
+          <ScalarProperty Name="projectId" ColumnName="projectId" />
+          <ScalarProperty Name="projectModuleId" ColumnName="projectModuleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectModuleExamine">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.ProjectModuleExamine">
+        <MappingFragment StoreEntitySet="ProjectModuleExamine">
+          <ScalarProperty Name="examineStatus" ColumnName="examineStatus" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="testGuid" ColumnName="testGuid" />
+          <ScalarProperty Name="executorGuid" ColumnName="executorGuid" />
+          <ScalarProperty Name="proModuleLv" ColumnName="proModuleLv" />
+          <ScalarProperty Name="proModuleScore" ColumnName="proModuleScore" />
+          <ScalarProperty Name="proEndTime" ColumnName="proEndTime" />
+          <ScalarProperty Name="proStartTime" ColumnName="proStartTime" />
+          <ScalarProperty Name="proModuleType" ColumnName="proModuleType" />
+          <ScalarProperty Name="parentModuleGuid" ColumnName="parentModuleGuid" />
+          <ScalarProperty Name="proModuleGuid" ColumnName="proModuleGuid" />
+          <ScalarProperty Name="projectExamineId" ColumnName="projectExamineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectPlan">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.ProjectPlan">
+        <MappingFragment StoreEntitySet="ProjectPlan">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="planStatus" ColumnName="planStatus" />
+          <ScalarProperty Name="planEndTime" ColumnName="planEndTime" />
+          <ScalarProperty Name="planBeginTime" ColumnName="planBeginTime" />
+          <ScalarProperty Name="planType" ColumnName="planType" />
+          <ScalarProperty Name="planGuid" ColumnName="planGuid" />
+          <ScalarProperty Name="planName" ColumnName="planName" />
+          <ScalarProperty Name="gradeId" ColumnName="gradeId" />
+          <ScalarProperty Name="panId" ColumnName="panId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectTeam">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.ProjectTeam">
+        <MappingFragment StoreEntitySet="ProjectTeam">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="teamName" ColumnName="teamName" />
+          <ScalarProperty Name="teamGuid" ColumnName="teamGuid" />
+          <ScalarProperty Name="groupLeaderId" ColumnName="groupLeaderId" />
+          <ScalarProperty Name="projectTeamId" ColumnName="projectTeamId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectTest">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.ProjectTest">
+        <MappingFragment StoreEntitySet="ProjectTest">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="testPresentation" ColumnName="testPresentation" />
+          <ScalarProperty Name="testTime" ColumnName="testTime" />
+          <ScalarProperty Name="testGuid" ColumnName="testGuid" />
+          <ScalarProperty Name="testStatus" ColumnName="testStatus" />
+          <ScalarProperty Name="proMuduleGuid" ColumnName="proMuduleGuid" />
+          <ScalarProperty Name="proTestGuid" ColumnName="proTestGuid" />
+          <ScalarProperty Name="projectModuleId" ColumnName="projectModuleId" />
+          <ScalarProperty Name="projectTestId" ColumnName="projectTestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_Teacher_SoftClass">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.R_Teacher_SoftClass">
+        <MappingFragment StoreEntitySet="R_Teacher_SoftClass">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="ctGuid" ColumnName="ctGuid" />
+          <ScalarProperty Name="techerType" ColumnName="techerType" />
+          <ScalarProperty Name="teacherId" ColumnName="teacherId" />
+          <ScalarProperty Name="softClassId" ColumnName="softClassId" />
+          <ScalarProperty Name="r_Teacher_Soft_Id" ColumnName="r_Teacher_Soft_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="sortCode" ColumnName="sortCode" />
+          <ScalarProperty Name="roleLv" ColumnName="roleLv" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="roleGuid" ColumnName="roleGuid" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleAuthorization">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.RoleAuthorization">
+        <MappingFragment StoreEntitySet="RoleAuthorization">
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="sortCode" ColumnName="sortCode" />
+          <ScalarProperty Name="roleGuid" ColumnName="roleGuid" />
+          <ScalarProperty Name="moduleGuid" ColumnName="moduleGuid" />
+          <ScalarProperty Name="authModuleType" ColumnName="authModuleType" />
+          <ScalarProperty Name="authGuid" ColumnName="authGuid" />
+          <ScalarProperty Name="roleAuthId" ColumnName="roleAuthId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoftClass">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.SoftClass">
+        <MappingFragment StoreEntitySet="SoftClass">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="softClassName" ColumnName="softClassName" />
+          <ScalarProperty Name="softClassGuid" ColumnName="softClassGuid" />
+          <ScalarProperty Name="gradeId" ColumnName="gradeId" />
+          <ScalarProperty Name="softClassId" ColumnName="softClassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="isEnable" ColumnName="isEnable" />
+          <ScalarProperty Name="stuPhone" ColumnName="stuPhone" />
+          <ScalarProperty Name="stuWeChat" ColumnName="stuWeChat" />
+          <ScalarProperty Name="stuQQ" ColumnName="stuQQ" />
+          <ScalarProperty Name="stuPlace" ColumnName="stuPlace" />
+          <ScalarProperty Name="stuCard" ColumnName="stuCard" />
+          <ScalarProperty Name="stuBirthday" ColumnName="stuBirthday" />
+          <ScalarProperty Name="stuNation" ColumnName="stuNation" />
+          <ScalarProperty Name="stuSex" ColumnName="stuSex" />
+          <ScalarProperty Name="stuName" ColumnName="stuName" />
+          <ScalarProperty Name="stuPwd" ColumnName="stuPwd" />
+          <ScalarProperty Name="stuNo" ColumnName="stuNo" />
+          <ScalarProperty Name="stuGuid" ColumnName="stuGuid" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="softClassId" ColumnName="softClassId" />
+          <ScalarProperty Name="stuId" ColumnName="stuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysModule">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.SysModule">
+        <MappingFragment StoreEntitySet="SysModule">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="sortCode" ColumnName="sortCode" />
+          <ScalarProperty Name="isMuen" ColumnName="isMuen" />
+          <ScalarProperty Name="sysModuleTarget" ColumnName="sysModuleTarget" />
+          <ScalarProperty Name="sysModuleUri" ColumnName="sysModuleUri" />
+          <ScalarProperty Name="sysModuleIcon" ColumnName="sysModuleIcon" />
+          <ScalarProperty Name="sysModuleName" ColumnName="sysModuleName" />
+          <ScalarProperty Name="sysModuleLv" ColumnName="sysModuleLv" />
+          <ScalarProperty Name="parentGuid" ColumnName="parentGuid" />
+          <ScalarProperty Name="sysModuleGuid" ColumnName="sysModuleGuid" />
+          <ScalarProperty Name="sysModuleId" ColumnName="sysModuleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysModuleButton">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.SysModuleButton">
+        <MappingFragment StoreEntitySet="SysModuleButton">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="sortCode" ColumnName="sortCode" />
+          <ScalarProperty Name="sysBtnUrlAddress" ColumnName="sysBtnUrlAddress" />
+          <ScalarProperty Name="sysBtnEvent" ColumnName="sysBtnEvent" />
+          <ScalarProperty Name="sysBtnIcon" ColumnName="sysBtnIcon" />
+          <ScalarProperty Name="sysBtnName" ColumnName="sysBtnName" />
+          <ScalarProperty Name="sysBtnGuid" ColumnName="sysBtnGuid" />
+          <ScalarProperty Name="sysModuleId" ColumnName="sysModuleId" />
+          <ScalarProperty Name="sysBtnId" ColumnName="sysBtnId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysModuleColumn">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.SysModuleColumn">
+        <MappingFragment StoreEntitySet="SysModuleColumn">
+          <ScalarProperty Name="sysColumnId" ColumnName="sysColumnId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysModuleForm">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.SysModuleForm">
+        <MappingFragment StoreEntitySet="SysModuleForm">
+          <ScalarProperty Name="sysFormId" ColumnName="sysFormId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teacher">
+      <EntityTypeMapping TypeName="ProjectManagement_DBModel.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="delUserGuid" ColumnName="delUserGuid" />
+          <ScalarProperty Name="isEnable" ColumnName="isEnable" />
+          <ScalarProperty Name="delTime" ColumnName="delTime" />
+          <ScalarProperty Name="lastUpdateUserGuid" ColumnName="lastUpdateUserGuid" />
+          <ScalarProperty Name="lastUpdateTime" ColumnName="lastUpdateTime" />
+          <ScalarProperty Name="createUserGuid" ColumnName="createUserGuid" />
+          <ScalarProperty Name="createTime" ColumnName="createTime" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="isDel" ColumnName="isDel" />
+          <ScalarProperty Name="sortCode" ColumnName="sortCode" />
+          <ScalarProperty Name="stuPhone" ColumnName="stuPhone" />
+          <ScalarProperty Name="stuWeChat" ColumnName="stuWeChat" />
+          <ScalarProperty Name="stuQQ" ColumnName="stuQQ" />
+          <ScalarProperty Name="teacherBirthday" ColumnName="teacherBirthday" />
+          <ScalarProperty Name="teacherSex" ColumnName="teacherSex" />
+          <ScalarProperty Name="teacherPlace" ColumnName="teacherPlace" />
+          <ScalarProperty Name="teacherNation" ColumnName="teacherNation" />
+          <ScalarProperty Name="teacherName" ColumnName="teacherName" />
+          <ScalarProperty Name="teacherType" ColumnName="teacherType" />
+          <ScalarProperty Name="teacherPwd" ColumnName="teacherPwd" />
+          <ScalarProperty Name="jobNumber" ColumnName="jobNumber" />
+          <ScalarProperty Name="tsGuid" ColumnName="tsGuid" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="teacherId" ColumnName="teacherId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

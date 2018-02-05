@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{47EF319C-0908-471F-B7A8-540AE503AAD0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ly.ProjectManagement.Model</RootNamespace>
+    <AssemblyName>Ly.ProjectManagement.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountLoginLog.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassLeader.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crew.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DefemseRoom.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grade.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupLeader.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LyDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LyDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LyDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LyDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LyDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NoticeDefense.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OperationRecord.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectModule.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectModuleExamine.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectPlan.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTeam.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTest.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleAuthorization.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoftClass.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysItemDetails.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysItems.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysModule.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysModuleButton.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysModuleColumn.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysModuleForm.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher.cs">
+      <DependentUpon>LyDataModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="LyDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LyDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LyDataModel.edmx.diagram">
+      <DependentUpon>LyDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LyDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LyDataModel.edmx</DependentUpon>
+      <LastGenOutput>LyDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LyDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LyDataModel.edmx</DependentUpon>
+      <LastGenOutput>LyDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<script>
+    var details = {
+        getKeyValue: function () {
+            return $.request("keyValue");
+        },
+        initControl: function () {
+            $("#teacherSex").select2({
+                minimumResultsForSearch: -1
+            });
+        },
+        ajaxData: function () {
+            details.initControl();
+            if (!!details.getKeyValue()) {
+                $.ajax({
+                    url: "/UserManagement/Instructor/GetFormJson",
+                    data: { keyValue: details.getKeyValue() },
+                    method: "POST",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+
+                        console.info(data);
+                        $("#frmInsModule").formSerialize(data);
+                        $("#frmInsModule").find("input,.form-control,select").attr('readonly', 'readonly')
+                        $("#teacherPwd").val("******").attr('disabled', 'disabled');
+                    }
+                })
+            }
+        }
+    };
+    $(function () {
+        details.ajaxData();
+    })
+</script>
+<form id="frmInsModule">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">基本信息</a></li>
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">工号</th>
+                    <td class="formValue">
+                        <input id="jobNumber" name="jobNumber" type="text" class="form-control required" placeholder="请输入工号" />
+                    </td>
+                    <th class="formTitle">密码</th>
+                    <td class="formValue">
+                        <input id="teacherPwd" name="teacherPwd" type="password" class="form-control required" placeholder="请输入登录密码" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">类别</th>
+                    <td class="formValue">
+                        <input id="type" name="type" type="text" class="form-control" placeholder="请输入类别" readonly value="辅导员" />
+                    </td>
+                    <th class="formTitle">辅导员名称</th>
+                    <td class="formValue">
+                        <input id="teacherName" name="teacherName" type="text" class="form-control required" placeholder="请输入辅导员名称" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">民族</th>
+                    <td class="formValue">
+                        <input id="teacherNation" name="teacherNation" type="text" class="form-control" placeholder="请输入民族" />
+                    </td>
+                    <th class="formTitle">籍贯</th>
+                    <td class="formValue">
+                        <input id="teacherPlace" name="teacherPlace" type="text" class="form-control" placeholder="请输入籍贯" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">性别</th>
+                    <td class="formValue">
+                        <select id="teacherSex" name="teacherSex" class="form-control required">
+                            <option value="false">男</option>
+                            <option value="true">女</option>
+                        </select>
+                    </td>
+                    <th class="formTitle">出生日期</th>
+                    <td class="formValue">
+                        <input id="teacherBirthday" name="teacherBirthday" type="text" class="form-control" placeholder="请输入出生日期" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">QQ</th>
+                    <td class="formValue">
+                        <input id="stuQQ" name="stuQQ" type="text" class="form-control" placeholder="请输入QQ" />
+                    </td>
+                    <th class="formTitle">微信</th>
+                    <td class="formValue">
+                        <input id="stuWeChat" name="stuWeChat" type="text" class="form-control" placeholder="请输入微信" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">电话</th>
+                    <td class="formValue">
+                        <input id="stuPhone" name="stuPhone" type="text" class="form-control required" placeholder="请输入电话" />
+                    </td>
+                    <th class="formTitle">排序码</th>
+                    <td class="formValue">
+                        <input id="sortCode" name="sortCode" type="number" min="1" class="form-control" placeholder="请输入排序码" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        备注
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="remarks" name="remarks" class="form-control" style="height: 100px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
+

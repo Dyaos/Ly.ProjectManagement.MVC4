@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+@*学生信息*@
+<script>
+    var details = {
+        getKeyValue: function () {
+            return $.request("keyValue");
+        },
+        initControl: function () {
+            $("#stuSex").select2({
+                minimumResultsForSearch: -1
+            });
+            $("#softClassGuid").bindSelect({
+                url: "/UserManagement/Class/GetSelectorJson",
+                id: "softClassGuid",
+                text: "softClassName",
+                search: true
+            });
+        },
+        ajaxData: function () {
+            details.initControl();
+            if (!!details.getKeyValue()) {
+                $.ajax({
+                    url: "/UserManagement/StudentInformation/GetFormJson",
+                    data: { keyValue: details.getKeyValue() },
+                    method: "POST",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        $("#frmStuModule").formSerialize(data);
+                        $("#stuPwd").val("******").attr('disabled', 'disabled');
+                        $("#stuNo").attr("readonly", "readonly");
+                    }
+                })
+
+            }
+        },
+        submitForm: function () {
+            if (!$("#frmStuModule").formValid()) {
+                return false;
+            }
+            $.submitForm({
+                url: "/UserManagement/StudentInformation/SubmitForm?keyValue=" + details.getKeyValue(),
+                param: $("#frmStuModule").formSerialize(),
+                success: function () {
+                    $.currentWindow().$("#gridInsList").resetSelection();
+                    $.currentWindow().$("#gridInsList").trigger("reloadGrid");
+                }
+            })
+        }
+    };
+    $(function () {
+        details.ajaxData();
+    })
+</script>
+<form id="frmStuModule">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">基本信息</a></li>
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">学号</th>
+                    <td class="formValue">
+                        <input id="stuNo" name="stuNo" type="text" class="form-control required" placeholder="请输入学号" />
+                    </td>
+                    <th class="formTitle">密码</th>
+                    <td class="formValue">
+                        <input id="stuPwd" name="stuPwd" type="password" class="form-control required" placeholder="请输入登录密码" />
+                    </td>
+
+                </tr>
+                
+                <tr>
+                    <th class="formTitle">班级名称</th>
+                    <td class="formValue" colspan="1">
+                        <select id="softClassGuid" name="softClassGuid" class="form-control required">
+                            <option value="">==请选择==</option>
+                        </select>
+                    </td>
+                    <th class="formTitle">学生名称</th>
+                    <td class="formValue">
+                        <input id="stuName" name="stuName" type="text" class="form-control required" placeholder="请输入学生名称" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">民族</th>
+                    <td class="formValue">
+                        <input id="stuNation" name="stuNation" type="text" class="form-control" placeholder="请输入民族" />
+                    </td>
+                    <th class="formTitle">籍贯</th>
+                    <td class="formValue">
+                        <input id="stuPlace" name="stuPlace" type="text" class="form-control" placeholder="请输入籍贯" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">性别</th>
+                    <td class="formValue">
+                        <select id="stuSex" name="stuSex" class="form-control required">
+                            <option value="false">男</option>
+                            <option value="true">女</option>
+                        </select>
+                    </td>
+                    <th class="formTitle">出生日期</th>
+                    <td class="formValue">
+                        <input id="stuBirthday" name="stuBirthday" type="text" onclick="WdatePicker({ dateFmt: 'yyyy/MM/dd' })" class="form-control" placeholder="请输入出生日期" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">QQ</th>
+                    <td class="formValue">
+                        <input id="stuQQ" name="stuQQ" type="text" class="form-control" placeholder="请输入QQ" />
+                    </td>
+                    <th class="formTitle">微信</th>
+                    <td class="formValue">
+                        <input id="stuWeChat" name="stuWeChat" type="text" class="form-control" placeholder="请输入微信" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">电话</th>
+                    <td class="formValue">
+                        <input id="stuPhone" name="stuPhone" type="text" class="form-control required" placeholder="请输入电话" />
+                    </td>
+                    <th class="formTitle">身份证号</th>
+                    <td class="formValue">
+                          <input id="stuCard" name="stuCard" type="text" class="form-control" placeholder="请输入身份证号" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">备注
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="remarks" name="remarks" class="form-control" style="height: 100px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
+
+
+        

@@ -1,0 +1,150 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/js/select2/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-font.css" rel="stylesheet" />
+    <link href="~/Content/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/ly-login.css" rel="stylesheet" />
+    <script src="~/Content/js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="~/Content/js/select2/select2.min.js"></script>
+    <script src="~/Content/js/cookie/jquery.cookie.js"></script>
+    <script src="~/Content/js/md5/jquery.md5.js"></script>
+    <title>卓越项目管理 - Ly</title>
+</head>
+<body>
+    <div style="position: absolute; z-index: 999; top: 20px; left: 20px; color: #fff; font-size: 13px; line-height: 22px;">
+        教师登录，用户名：admin 密码：admin
+    </div>
+    <div class="wrapper">
+        <div class="container">
+
+            <div class="title"><img src="~/Content/img/logo2.png" />卓越项目管理</div>
+            <form class="form">
+                <div class="row">
+                    <select id="accountType" style="font-size: 15px;height: 40px;"></select>
+                </div>
+                <div class="row">
+                    <input class="form-control" id="accountName" type="text" placeholder="学号/工号" />
+                </div>
+                <div class="row">
+                    <input class="form-control" id="accountPwd" type="password" placeholder="密码" />
+                </div>
+                <div class="row">
+                    <input class="form-control col-lg-4" id="code" maxlength="4" type="text" placeholder="验证码" style="width: 190px; float: left;">
+                    <div style="width: 110px; float: right; padding-top: 14px; padding-left: 14px;">
+                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;">换一张</a>
+                        <img id="imgcode" class="authcode" src="~/Login/GetAuthCode" width="80" height="25" />
+                    </div>
+                </div>
+                <div class="row">
+                    <button id="btnLogin" type="button" class="btn btn-primary col-lg-12 form-control"><span>登录</span></button>
+                </div>
+                <div class="login_tips"></div>
+            </form>、
+        </div>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="footer">
+        &copy;2017 - Ly开发团队 - 卓越项目管理系统
+        <br />
+        适用浏览器：IE8以上、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.
+    </div>
+    <script type="text/javascript">
+        (function ($) {
+            $.login = {
+                formMessage: function (msg) {
+                    $('.login_tips').find('.tips_msg').remove();
+                    $('.login_tips').append('<div class="tips_msg"><i class="fa fa-question-circle"></i>' + msg + '</div>');
+                },
+                loginClick: function () {
+                    var $accountName = $("#accountName");
+                    var $accountPwd = $("#accountPwd");
+                    var $code = $("#code");
+                    if ($accountName.val() == "") {
+                        $accountName.focus();
+                        $.login.formMessage('请输入学号/工号。');
+                        return false;
+                    } else if ($accountPwd.val() == "") {
+                        $accountPwd.focus();
+                        $.login.formMessage('请输入登录密码。');
+                        return false;
+                    } else if ($code.val() == "") {
+                        $code.focus();
+                        $.login.formMessage('请输入验证码。');
+                        return false;
+                    } else {
+                        $('.login_tips').find('.tips_msg').remove();
+                        $("#btnLogin").attr('disabled', 'disabled').find('span').html("Loading...");
+                        $.ajax({
+                            url: "/Login/CheckLogin",
+                            data: { type: $("#accountType").select2("data")[0].id, name: $.trim($accountName.val()), pwd: $.md5($.trim($accountPwd.val())), code: $.trim($code.val()) },
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.state == "success") {
+                                    $("#btnLogin").find('span').html("登录成功，正在跳转...");
+                                    window.setTimeout(function () {
+                                        window.location.href = "/Home/Index";
+                                    }, 500);
+                                } else {
+                                    $("#btnLogin").removeAttr('disabled').find('span').html("登录");
+                                    $("#switchCode").trigger("click");
+                                    $code.val('');
+                                    $.login.formMessage(data.message);
+                                }
+                            }
+                        });
+                    }
+                },
+                init: function () {
+                    $(".wrapper").height($(window).height())
+                    $(".container").css("margin-top", ($(window).height() - $(".container").height()) / 2 - 50);
+                    $(window).resize(function (e) {
+                        $('.wrapper').height($(window).height());
+                        $(".container").css("margin-top", ($(window).height() - $(".container").height()) / 2 - 50);
+                    });
+                    var data = [{ id: 0, text: '学生' }, { id: 1, text: '讲师' }];
+                    $("#accountType").select2({
+                        data: data,
+                        placeholder: '请选择'
+                    })
+
+                    $("#switchCode").click(function () {
+                        $("#imgcode").attr("src", "/Login/GetAuthCode?time=" + Math.random());
+                    })
+                    $("#btnLogin").click(function () {
+                        $.login.loginClick();
+                    })
+                    document.onkeydown = function (e) {
+                        if (!e) e = window.event;
+                        if ((e.keyCode || e.which) == 13) {
+                            document.getElementById("btnLogin").click();
+                        }
+                    }
+                }
+            }
+            $(function () {
+                $.login.init();
+            })
+        })(jQuery)
+    </script>
+</body>
+</html>

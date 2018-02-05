@@ -1,0 +1,171 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script>
+    var moduleGrid = {
+        initGrid: function () {
+            var $gridList = $("#gridList");
+            $gridList.dataGrid({
+                url: '/UserManagement/StudentInformation/GetGridJson',
+                height: $(window).height() - 96,
+                pager: "#pager",
+                rowNum: 20,
+                rowList: [20, 30, 40],
+                viewrecords: true,
+                colModel: [
+                    { label: "主键", name: "stuGuid", hidden: true, key: true },
+                    { label: '学号', name: 'stuNo', width: 150, align: 'left' },
+                    { label: '姓名', name: 'stuName', width: 150, align: 'left' },
+                    { label: '民族', name: 'stuNation', width: 100, align: 'left' },
+                    { label: '籍贯', name: 'stuPlace', width: 150, align: 'left' },
+                    {
+                        label: '性别', name: 'stuSex', width: 100, align: 'left',
+                        formatter: function (cellValue) {
+                            return cellValue == true ? "女" : "男";
+                        }
+                    },
+                    { label: '身份证号', name: 'stuCard', width: 150, align: 'left' },
+                    { label: '出生日期', name: 'stuBirthday', width: 150, align: 'left' },
+                    { label: 'QQ', name: 'stuQQ', width: 150, align: 'left' },
+                    { label: '微信', name: 'stuWeChat', width: 150, align: 'left' },
+                    { label: '电话', name: 'stuPhone', width: 150, align: 'left' },
+                    {
+                        label: '有效', name: 'isEnabled', width: 100, align: 'left',
+                        formatter: function (cellvalue) {
+                            return cellvalue == true ? "<i class=\"fa fa-toggle-on\"></i>" : "<i class=\"fa fa-toggle-off\"></i>";
+                        }
+                    },
+                    {
+                        label: '创建时间', name: 'createTime', width: 200, align: 'left',
+                        formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+                    },
+                    
+                    { label: '备注', name: 'remarks', width: 250, align: 'left' }
+                ],
+                sortname: "stuNo asc"
+            })
+        },
+        btnAdd: function () {
+            $.modalOpen({
+                id: "Form",
+                title: "新增学生信息",
+                url: "/UserManagement/StudentInformation/Form",
+                width: "750px",
+                height: "520px",
+                callBack: function (iframeId) {
+                    top.frames[iframeId].details.submitForm();
+                }
+            });
+        },
+        btnDetails: function () {
+            console.info(moduleGrid.getSelectRowGuid());
+            $.modalOpen({
+                id: "Details",
+                title: "查看学生信息",
+                url: "/UserManagement/StudentInformation/Details?keyValue=" + moduleGrid.getSelectRowGuid(),
+                width: "450px",
+                height: "350px",
+                btn: null,
+            });
+        },
+        btnDelete: function () {
+            $.deleteForm({
+                url: "/UserManagement/StudentInformation/DeleteForm",
+                param: { keyValue: moduleGrid.getSelectRowGuid() },
+                success: function () {
+                    $.currentWindow().$("#gridList").trigger("reloadGrid");
+                }
+            })
+        },
+        btnEdit: function () {
+            $.modalOpen({
+                id: "Form",
+                title: "修改学生信息",
+                url: "/UserManagement/StudentInformation/Form?keyValue=" + moduleGrid.getSelectRowGuid(),
+                width: "450px",
+                height: "350px",
+                callBack: function (iframeId) {
+                    top.frames[iframeId].details.submitForm();
+                }
+            });
+        },
+        btnDisabled: function () {
+            $.modalConfirm("注：您确定要【禁用】该学生信息吗？", function (r) {
+                if (r) {
+                    $.submitForm({
+                        url: "/UserManagement/StudentInformation/DisabledClass",
+                        param: { keyValue: moduleGrid.getSelectRowGuid() },
+                        success: function () {
+                            $.currentWindow().$("#gridList").trigger("reloadGrid");
+                        }
+                    })
+                }
+            });
+        },
+        btnEnabled: function () {
+            $.modalConfirm("注：您确定要【启用】该学生信息吗？", function (r) {
+                if (r) {
+                    $.submitForm({
+                        url: "/UserManagement/StudentInformation/EnabledClass",
+                        param: { keyValue: moduleGrid.getSelectRowGuid() },
+                        success: function () {
+                            $.currentWindow().$("#gridList").trigger("reloadGrid");
+                        }
+                    })
+                }
+            });
+        },
+        getSelectRowGuid: function () {
+            var keyValue = $("#gridList").jqGridRowValue().softClassGuid;
+            return keyValue;
+        }
+    };
+
+    $(function () {
+        moduleGrid.initGrid();
+    })
+</script>
+
+<div class="topPanel">
+    <div class="toolbar">
+        <div class="btn-group">
+            <a class="btn btn-primary" onclick="$.reload()"><span class="glyphicon glyphicon-refresh"></span></a>
+        </div>
+        <div class="btn-group">
+            <a id="Ly-add" authorize="yes" class="btn btn-primary dropdown-text" onclick="moduleGrid.btnAdd()"><i class="fa fa-plus"></i>新建学生信息</a>
+        </div>
+        <div class="operate">
+            <ul class="nav nav-pills">
+                <li class="first">已选中<span>1</span>项</li>
+                <li><a id="Ly-edit" authorize="yes" onclick="moduleGrid.btnEdit()"><i class="fa fa-pencil-square-o"></i>修改学生信息</a></li>
+                <li><a id="Ly-delete" authorize="yes" onclick="moduleGrid.btnDelete()"><i class="fa fa-trash-o"></i>删除学生信息</a></li>
+                <li><a id="Ly-Details" authorize="yes" onclick="moduleGrid.btnDetails()"><i class="fa fa-search-plus"></i>查看学生信息</a></li>
+                <li class="split"></li>
+                <li><a id="Ly-disabled" authorize="yes" onclick="moduleGrid.btnDisabled()"><i class="fa fa-stop-circle"></i>禁用</a></li>
+                <li><a id="Ly-enabled" authorize="yes" onclick="moduleGrid.btnEnabled()"><i class="fa fa-play-circle"></i>启用</a></li>
+            </ul>
+            <a href="javascript:;" class="close"></a>
+        </div>
+        @*<script>$('.toolbar').authorizeButton()</script>*@
+    </div>
+    <div class="search">
+        <table>
+            <tr>
+                <td>
+                    <div class="input-group">
+                        <input id="txt_keyword" type="text" class="form-control" placeholder="学生名称" style="width: 200px;">
+                        <span class="input-group-btn">
+                            <button id="btn_search" type="button" class="btn  btn-primary"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="gridPanel">
+    <table id="gridList"></table>
+    <div id="pager"></div>
+</div>

@@ -1,0 +1,853 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectManagement_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ProjectManagement_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccountLoginLog" EntityType="ProjectManagement_DBModel.AccountLoginLog" />
+    <EntitySet Name="ClassLeader" EntityType="ProjectManagement_DBModel.ClassLeader" />
+    <EntitySet Name="Crew" EntityType="ProjectManagement_DBModel.Crew" />
+    <EntitySet Name="DefemseRoom" EntityType="ProjectManagement_DBModel.DefemseRoom" />
+    <EntitySet Name="Grade" EntityType="ProjectManagement_DBModel.Grade" />
+    <EntitySet Name="GroupLeader" EntityType="ProjectManagement_DBModel.GroupLeader" />
+    <EntitySet Name="NoticeDefense" EntityType="ProjectManagement_DBModel.NoticeDefense" />
+    <EntitySet Name="OperationRecord" EntityType="ProjectManagement_DBModel.OperationRecord" />
+    <EntitySet Name="Project" EntityType="ProjectManagement_DBModel.Project" />
+    <EntitySet Name="ProjectModule" EntityType="ProjectManagement_DBModel.ProjectModule" />
+    <EntitySet Name="ProjectModuleExamine" EntityType="ProjectManagement_DBModel.ProjectModuleExamine" />
+    <EntitySet Name="ProjectPlan" EntityType="ProjectManagement_DBModel.ProjectPlan" />
+    <EntitySet Name="ProjectTeam" EntityType="ProjectManagement_DBModel.ProjectTeam" />
+    <EntitySet Name="ProjectTest" EntityType="ProjectManagement_DBModel.ProjectTest" />
+    <EntitySet Name="Role" EntityType="ProjectManagement_DBModel.Role" />
+    <EntitySet Name="RoleAuthorization" EntityType="ProjectManagement_DBModel.RoleAuthorization" />
+    <EntitySet Name="SoftClass" EntityType="ProjectManagement_DBModel.SoftClass" />
+    <EntitySet Name="Student" EntityType="ProjectManagement_DBModel.Student" />
+    <EntitySet Name="SysModule" EntityType="ProjectManagement_DBModel.SysModule" />
+    <EntitySet Name="SysModuleButton" EntityType="ProjectManagement_DBModel.SysModuleButton" />
+    <EntitySet Name="SysModuleColumn" EntityType="ProjectManagement_DBModel.SysModuleColumn" />
+    <EntitySet Name="SysModuleForm" EntityType="ProjectManagement_DBModel.SysModuleForm" />
+    <EntitySet Name="Teacher" EntityType="ProjectManagement_DBModel.Teacher" />
+    <AssociationSet Name="FK_CLASSLEA_RELATIONS_SOFTCLAS" Association="ProjectManagement_DBModel.FK_CLASSLEA_RELATIONS_SOFTCLAS">
+      <End Role="SoftClass" EntitySet="SoftClass" />
+      <End Role="ClassLeader" EntitySet="ClassLeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREW_RELATIONS_PROJECTT" Association="ProjectManagement_DBModel.FK_CREW_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="Crew" EntitySet="Crew" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DefemseRoom_ProjectPlan" Association="ProjectManagement_DBModel.FK_DefemseRoom_ProjectPlan">
+      <End Role="ProjectPlan" EntitySet="ProjectPlan" />
+      <End Role="DefemseRoom" EntitySet="DefemseRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTICEDE_RELATIONS_DEFEMSER" Association="ProjectManagement_DBModel.FK_NOTICEDE_RELATIONS_DEFEMSER">
+      <End Role="DefemseRoom" EntitySet="DefemseRoom" />
+      <End Role="NoticeDefense" EntitySet="NoticeDefense" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTP_RELATIONS_GRADE" Association="ProjectManagement_DBModel.FK_PROJECTP_RELATIONS_GRADE">
+      <End Role="Grade" EntitySet="Grade" />
+      <End Role="ProjectPlan" EntitySet="ProjectPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOFTCLAS_RELATIONS_GRADE" Association="ProjectManagement_DBModel.FK_SOFTCLAS_RELATIONS_GRADE">
+      <End Role="Grade" EntitySet="Grade" />
+      <End Role="SoftClass" EntitySet="SoftClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GROUPLEA_RELATIONS_PROJECTP" Association="ProjectManagement_DBModel.FK_GROUPLEA_RELATIONS_PROJECTP">
+      <End Role="ProjectPlan" EntitySet="ProjectPlan" />
+      <End Role="GroupLeader" EntitySet="GroupLeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GROUPLEA_RELATIONS_ROLE" Association="ProjectManagement_DBModel.FK_GROUPLEA_RELATIONS_ROLE">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="GroupLeader" EntitySet="GroupLeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTT_RELATIONS_GROUPLEA" Association="ProjectManagement_DBModel.FK_PROJECTT_RELATIONS_GROUPLEA">
+      <End Role="GroupLeader" EntitySet="GroupLeader" />
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTICEDE_RELATIONS_PROJECTT" Association="ProjectManagement_DBModel.FK_NOTICEDE_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="NoticeDefense" EntitySet="NoticeDefense" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RELATIONS_PROJECTT" Association="ProjectManagement_DBModel.FK_PROJECT_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTM_RELATIONS_PROJECTT" Association="ProjectManagement_DBModel.FK_PROJECTM_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="ProjectModule" EntitySet="ProjectModule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTT_RELATIONS_PROJECTM" Association="ProjectManagement_DBModel.FK_PROJECTT_RELATIONS_PROJECTM">
+      <End Role="ProjectModule" EntitySet="ProjectModule" />
+      <End Role="ProjectTest" EntitySet="ProjectTest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENT_RELATIONS_ROLE" Association="ProjectManagement_DBModel.FK_STUDENT_RELATIONS_ROLE">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TEACHER_RELATIONS_ROLE" Association="ProjectManagement_DBModel.FK_TEACHER_RELATIONS_ROLE">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Teacher" EntitySet="Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENT_RELATIONS_SOFTCLAS" Association="ProjectManagement_DBModel.FK_STUDENT_RELATIONS_SOFTCLAS">
+      <End Role="SoftClass" EntitySet="SoftClass" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleButton_SysModule" Association="ProjectManagement_DBModel.FK_SysModuleButton_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleButton" EntitySet="SysModuleButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleColumn_SysModule" Association="ProjectManagement_DBModel.FK_SysModuleColumn_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleColumn" EntitySet="SysModuleColumn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleForm_SysModule" Association="ProjectManagement_DBModel.FK_SysModuleForm_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleForm" EntitySet="SysModuleForm" />
+    </AssociationSet>
+    <EntitySet Name="SysItemDetails" EntityType="ProjectManagement_DBModel.SysItemDetails" />
+    <EntitySet Name="SysItems" EntityType="ProjectManagement_DBModel.SysItems" />
+    <AssociationSet Name="FK_SysItemDetails_SysItems" Association="ProjectManagement_DBModel.FK_SysItemDetails_SysItems">
+      <End Role="SysItems" EntitySet="SysItems" />
+      <End Role="SysItemDetails" EntitySet="SysItemDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AccountLoginLog">
+    <Key>
+      <PropertyRef Name="logGuid" />
+    </Key>
+    <Property Name="logGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="loginType" Type="Int32" />
+    <Property Name="loginIpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="loginTime" Type="DateTime" Precision="3" />
+    <Property Name="loginIpAddressName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="loginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="loginResult" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="loginDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ClassLeader">
+    <Key>
+      <PropertyRef Name="classLeaderGuid" />
+    </Key>
+    <Property Name="classLeaderGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="softClassGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="techerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="classTeacherGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SoftClass" Relationship="ProjectManagement_DBModel.FK_CLASSLEA_RELATIONS_SOFTCLAS" FromRole="ClassLeader" ToRole="SoftClass" />
+  </EntityType>
+  <EntityType Name="Crew">
+    <Key>
+      <PropertyRef Name="crewGuid" />
+    </Key>
+    <Property Name="crewGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teamGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="crewStuGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="ProjectTeam" Relationship="ProjectManagement_DBModel.FK_CREW_RELATIONS_PROJECTT" FromRole="Crew" ToRole="ProjectTeam" />
+  </EntityType>
+  <EntityType Name="DefemseRoom">
+    <Key>
+      <PropertyRef Name="defemseRoomGuid" />
+    </Key>
+    <Property Name="defemseRoomGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="defemseTeacherGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="instructorGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="planGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProjectPlan" Relationship="ProjectManagement_DBModel.FK_DefemseRoom_ProjectPlan" FromRole="DefemseRoom" ToRole="ProjectPlan" />
+    <NavigationProperty Name="NoticeDefense" Relationship="ProjectManagement_DBModel.FK_NOTICEDE_RELATIONS_DEFEMSER" FromRole="DefemseRoom" ToRole="NoticeDefense" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="gradeGuid" />
+    </Key>
+    <Property Name="gradeGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gradeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="ProjectPlan" Relationship="ProjectManagement_DBModel.FK_PROJECTP_RELATIONS_GRADE" FromRole="Grade" ToRole="ProjectPlan" />
+    <NavigationProperty Name="SoftClass" Relationship="ProjectManagement_DBModel.FK_SOFTCLAS_RELATIONS_GRADE" FromRole="Grade" ToRole="SoftClass" />
+  </EntityType>
+  <EntityType Name="GroupLeader">
+    <Key>
+      <PropertyRef Name="leaderGuid" />
+    </Key>
+    <Property Name="leaderGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="planGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="roleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="leaderStuGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="ProjectPlan" Relationship="ProjectManagement_DBModel.FK_GROUPLEA_RELATIONS_PROJECTP" FromRole="GroupLeader" ToRole="ProjectPlan" />
+    <NavigationProperty Name="Role" Relationship="ProjectManagement_DBModel.FK_GROUPLEA_RELATIONS_ROLE" FromRole="GroupLeader" ToRole="Role" />
+    <NavigationProperty Name="ProjectTeam" Relationship="ProjectManagement_DBModel.FK_PROJECTT_RELATIONS_GROUPLEA" FromRole="GroupLeader" ToRole="ProjectTeam" />
+  </EntityType>
+  <EntityType Name="NoticeDefense">
+    <Key>
+      <PropertyRef Name="noticeGuid" />
+    </Key>
+    <Property Name="noticeGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teamGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="defemseRoomGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="noticeTime" Type="DateTime" Precision="3" />
+    <Property Name="defenseTime" Type="DateTime" Precision="3" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DefemseRoom" Relationship="ProjectManagement_DBModel.FK_NOTICEDE_RELATIONS_DEFEMSER" FromRole="NoticeDefense" ToRole="DefemseRoom" />
+    <NavigationProperty Name="ProjectTeam" Relationship="ProjectManagement_DBModel.FK_NOTICEDE_RELATIONS_PROJECTT" FromRole="NoticeDefense" ToRole="ProjectTeam" />
+  </EntityType>
+  <EntityType Name="OperationRecord">
+    <Key>
+      <PropertyRef Name="operationGuid" />
+    </Key>
+    <Property Name="operationGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="operatorGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="operationTable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="operationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="operatorType" Type="Int32" />
+    <Property Name="operationTime" Type="DateTime" Precision="3" />
+    <Property Name="operationDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="projectGuid" />
+    </Key>
+    <Property Name="projectGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teamGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="projectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="projectDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="projectTarget" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="proApproval" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="proPlan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="proDemand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="proDesign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="ProjectTeam" Relationship="ProjectManagement_DBModel.FK_PROJECT_RELATIONS_PROJECTT" FromRole="Project" ToRole="ProjectTeam" />
+  </EntityType>
+  <EntityType Name="ProjectModule">
+    <Key>
+      <PropertyRef Name="proModuleGuid" />
+    </Key>
+    <Property Name="proModuleGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teamGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parentModuleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="proModuleType" Type="Int32" />
+    <Property Name="proStartTime" Type="DateTime" Precision="3" />
+    <Property Name="proEndTime" Type="DateTime" Precision="3" />
+    <Property Name="proCompletiontime" Type="DateTime" Precision="3" />
+    <Property Name="proModuleStatus" Type="Int32" />
+    <Property Name="proTestStatus" Type="Int32" />
+    <Property Name="proModuleScore" Type="Int32" />
+    <Property Name="proModuleLv" Type="Int32" />
+    <Property Name="defenceScore" Type="Int32" />
+    <Property Name="defenceTeacherGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="executorGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="testGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="ProjectTeam" Relationship="ProjectManagement_DBModel.FK_PROJECTM_RELATIONS_PROJECTT" FromRole="ProjectModule" ToRole="ProjectTeam" />
+    <NavigationProperty Name="ProjectTest" Relationship="ProjectManagement_DBModel.FK_PROJECTT_RELATIONS_PROJECTM" FromRole="ProjectModule" ToRole="ProjectTest" />
+  </EntityType>
+  <EntityType Name="ProjectModuleExamine">
+    <Key>
+      <PropertyRef Name="proModuleGuid2" />
+    </Key>
+    <Property Name="proModuleGuid2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parentModuleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="proModuleType" Type="Int32" />
+    <Property Name="proStartTime" Type="DateTime" Precision="3" />
+    <Property Name="proEndTime" Type="DateTime" Precision="3" />
+    <Property Name="proCompletiontime" Type="DateTime" Precision="3" />
+    <Property Name="proModuleStatus" Type="Int32" />
+    <Property Name="proTestStatus" Type="Int32" />
+    <Property Name="proModuleScore" Type="Int32" />
+    <Property Name="proModuleLv" Type="Int32" />
+    <Property Name="defenceScore" Type="Int32" />
+    <Property Name="defenceTeacherGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="executorGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="testGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ProjectPlan">
+    <Key>
+      <PropertyRef Name="planGuid" />
+    </Key>
+    <Property Name="planGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gradeGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="planName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="planType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="planBeginTime" Type="DateTime" Precision="3" />
+    <Property Name="planEndTime" Type="DateTime" Precision="3" />
+    <Property Name="planStatus" Type="Boolean" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="DefemseRoom" Relationship="ProjectManagement_DBModel.FK_DefemseRoom_ProjectPlan" FromRole="ProjectPlan" ToRole="DefemseRoom" />
+    <NavigationProperty Name="Grade" Relationship="ProjectManagement_DBModel.FK_PROJECTP_RELATIONS_GRADE" FromRole="ProjectPlan" ToRole="Grade" />
+    <NavigationProperty Name="GroupLeader" Relationship="ProjectManagement_DBModel.FK_GROUPLEA_RELATIONS_PROJECTP" FromRole="ProjectPlan" ToRole="GroupLeader" />
+  </EntityType>
+  <EntityType Name="ProjectTeam">
+    <Key>
+      <PropertyRef Name="teamGuid" />
+    </Key>
+    <Property Name="teamGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="leaderGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="Crew" Relationship="ProjectManagement_DBModel.FK_CREW_RELATIONS_PROJECTT" FromRole="ProjectTeam" ToRole="Crew" />
+    <NavigationProperty Name="GroupLeader" Relationship="ProjectManagement_DBModel.FK_PROJECTT_RELATIONS_GROUPLEA" FromRole="ProjectTeam" ToRole="GroupLeader" />
+    <NavigationProperty Name="NoticeDefense" Relationship="ProjectManagement_DBModel.FK_NOTICEDE_RELATIONS_PROJECTT" FromRole="ProjectTeam" ToRole="NoticeDefense" />
+    <NavigationProperty Name="Project" Relationship="ProjectManagement_DBModel.FK_PROJECT_RELATIONS_PROJECTT" FromRole="ProjectTeam" ToRole="Project" />
+    <NavigationProperty Name="ProjectModule" Relationship="ProjectManagement_DBModel.FK_PROJECTM_RELATIONS_PROJECTT" FromRole="ProjectTeam" ToRole="ProjectModule" />
+  </EntityType>
+  <EntityType Name="ProjectTest">
+    <Key>
+      <PropertyRef Name="proTestGuid" />
+    </Key>
+    <Property Name="proTestGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="proModuleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="proMuduleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="testStatus" Type="Int32" />
+    <Property Name="testGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="testTime" Type="DateTime" Precision="3" />
+    <Property Name="testPresentation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="ProjectModule" Relationship="ProjectManagement_DBModel.FK_PROJECTT_RELATIONS_PROJECTM" FromRole="ProjectTest" ToRole="ProjectModule" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="roleGuid" />
+    </Key>
+    <Property Name="roleGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="roleLv" Type="Int32" />
+    <Property Name="sortCode" Type="Int32" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="GroupLeader" Relationship="ProjectManagement_DBModel.FK_GROUPLEA_RELATIONS_ROLE" FromRole="Role" ToRole="GroupLeader" />
+    <NavigationProperty Name="Student" Relationship="ProjectManagement_DBModel.FK_STUDENT_RELATIONS_ROLE" FromRole="Role" ToRole="Student" />
+    <NavigationProperty Name="Teacher" Relationship="ProjectManagement_DBModel.FK_TEACHER_RELATIONS_ROLE" FromRole="Role" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="RoleAuthorization">
+    <Key>
+      <PropertyRef Name="authGuid" />
+    </Key>
+    <Property Name="authGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="authModuleType" Type="Int32" />
+    <Property Name="authModuleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="authRoleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sortCode" Type="Int32" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SoftClass">
+    <Key>
+      <PropertyRef Name="softClassGuid" />
+    </Key>
+    <Property Name="softClassGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gradeGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="softClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="ClassLeader" Relationship="ProjectManagement_DBModel.FK_CLASSLEA_RELATIONS_SOFTCLAS" FromRole="SoftClass" ToRole="ClassLeader" />
+    <NavigationProperty Name="Grade" Relationship="ProjectManagement_DBModel.FK_SOFTCLAS_RELATIONS_GRADE" FromRole="SoftClass" ToRole="Grade" />
+    <NavigationProperty Name="Student" Relationship="ProjectManagement_DBModel.FK_STUDENT_RELATIONS_SOFTCLAS" FromRole="SoftClass" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="stuGuid" />
+    </Key>
+    <Property Name="stuGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="roleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="softClassGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuSex" Type="Boolean" />
+    <Property Name="stuNation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuBirthday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuCard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuWeChat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="Role" Relationship="ProjectManagement_DBModel.FK_STUDENT_RELATIONS_ROLE" FromRole="Student" ToRole="Role" />
+    <NavigationProperty Name="SoftClass" Relationship="ProjectManagement_DBModel.FK_STUDENT_RELATIONS_SOFTCLAS" FromRole="Student" ToRole="SoftClass" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="sysModuleGuid" />
+    </Key>
+    <Property Name="sysModuleGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parentGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysModuleLv" Type="Int32" />
+    <Property Name="sysModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysModuleIcon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysModuleUri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysModuleTarget" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isMuen" Type="Boolean" />
+    <Property Name="sortCode" Type="Int32" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="SysModuleButton" Relationship="ProjectManagement_DBModel.FK_SysModuleButton_SysModule" FromRole="SysModule" ToRole="SysModuleButton" />
+    <NavigationProperty Name="SysModuleColumn" Relationship="ProjectManagement_DBModel.FK_SysModuleColumn_SysModule" FromRole="SysModule" ToRole="SysModuleColumn" />
+    <NavigationProperty Name="SysModuleForm" Relationship="ProjectManagement_DBModel.FK_SysModuleForm_SysModule" FromRole="SysModule" ToRole="SysModuleForm" />
+  </EntityType>
+  <EntityType Name="SysModuleButton">
+    <Key>
+      <PropertyRef Name="sysBtnGuid" />
+    </Key>
+    <Property Name="sysBtnGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysBtnName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysBtnIcon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysBtnEvent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysBtnUrlAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sortCode" Type="Int32" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysModuleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysEnCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysModule" Relationship="ProjectManagement_DBModel.FK_SysModuleButton_SysModule" FromRole="SysModuleButton" ToRole="SysModule" />
+  </EntityType>
+  <EntityType Name="SysModuleColumn">
+    <Key>
+      <PropertyRef Name="sysColumnGuid" />
+    </Key>
+    <Property Name="sysColumnGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysModuleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysModule" Relationship="ProjectManagement_DBModel.FK_SysModuleColumn_SysModule" FromRole="SysModuleColumn" ToRole="SysModule" />
+  </EntityType>
+  <EntityType Name="SysModuleForm">
+    <Key>
+      <PropertyRef Name="sysFormGuid" />
+    </Key>
+    <Property Name="sysFormGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sysModuleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SysModule" Relationship="ProjectManagement_DBModel.FK_SysModuleForm_SysModule" FromRole="SysModuleForm" ToRole="SysModule" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="teacherGuid" />
+    </Key>
+    <Property Name="teacherGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="roleGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="jobNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teacherPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teacherType" Type="Int32" />
+    <Property Name="teacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teacherNation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teacherPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="teacherSex" Type="Boolean" />
+    <Property Name="teacherBirthday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuQQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuWeChat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stuPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sortCode" Type="Int32" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="Role" Relationship="ProjectManagement_DBModel.FK_TEACHER_RELATIONS_ROLE" FromRole="Teacher" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_CLASSLEA_RELATIONS_SOFTCLAS">
+    <End Type="ProjectManagement_DBModel.SoftClass" Role="SoftClass" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.ClassLeader" Role="ClassLeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoftClass">
+        <PropertyRef Name="softClassGuid" />
+      </Principal>
+      <Dependent Role="ClassLeader">
+        <PropertyRef Name="softClassGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREW_RELATIONS_PROJECTT">
+    <End Type="ProjectManagement_DBModel.ProjectTeam" Role="ProjectTeam" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.Crew" Role="Crew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="Crew">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DefemseRoom_ProjectPlan">
+    <End Type="ProjectManagement_DBModel.ProjectPlan" Role="ProjectPlan" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.DefemseRoom" Role="DefemseRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectPlan">
+        <PropertyRef Name="planGuid" />
+      </Principal>
+      <Dependent Role="DefemseRoom">
+        <PropertyRef Name="planGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTICEDE_RELATIONS_DEFEMSER">
+    <End Type="ProjectManagement_DBModel.DefemseRoom" Role="DefemseRoom" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.NoticeDefense" Role="NoticeDefense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DefemseRoom">
+        <PropertyRef Name="defemseRoomGuid" />
+      </Principal>
+      <Dependent Role="NoticeDefense">
+        <PropertyRef Name="defemseRoomGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTP_RELATIONS_GRADE">
+    <End Type="ProjectManagement_DBModel.Grade" Role="Grade" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.ProjectPlan" Role="ProjectPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade">
+        <PropertyRef Name="gradeGuid" />
+      </Principal>
+      <Dependent Role="ProjectPlan">
+        <PropertyRef Name="gradeGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOFTCLAS_RELATIONS_GRADE">
+    <End Type="ProjectManagement_DBModel.Grade" Role="Grade" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.SoftClass" Role="SoftClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade">
+        <PropertyRef Name="gradeGuid" />
+      </Principal>
+      <Dependent Role="SoftClass">
+        <PropertyRef Name="gradeGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GROUPLEA_RELATIONS_PROJECTP">
+    <End Type="ProjectManagement_DBModel.ProjectPlan" Role="ProjectPlan" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.GroupLeader" Role="GroupLeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectPlan">
+        <PropertyRef Name="planGuid" />
+      </Principal>
+      <Dependent Role="GroupLeader">
+        <PropertyRef Name="planGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GROUPLEA_RELATIONS_ROLE">
+    <End Type="ProjectManagement_DBModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.GroupLeader" Role="GroupLeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleGuid" />
+      </Principal>
+      <Dependent Role="GroupLeader">
+        <PropertyRef Name="roleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTT_RELATIONS_GROUPLEA">
+    <End Type="ProjectManagement_DBModel.GroupLeader" Role="GroupLeader" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.ProjectTeam" Role="ProjectTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupLeader">
+        <PropertyRef Name="leaderGuid" />
+      </Principal>
+      <Dependent Role="ProjectTeam">
+        <PropertyRef Name="leaderGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTICEDE_RELATIONS_PROJECTT">
+    <End Type="ProjectManagement_DBModel.ProjectTeam" Role="ProjectTeam" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.NoticeDefense" Role="NoticeDefense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="NoticeDefense">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RELATIONS_PROJECTT">
+    <End Type="ProjectManagement_DBModel.ProjectTeam" Role="ProjectTeam" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTM_RELATIONS_PROJECTT">
+    <End Type="ProjectManagement_DBModel.ProjectTeam" Role="ProjectTeam" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.ProjectModule" Role="ProjectModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="ProjectModule">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTT_RELATIONS_PROJECTM">
+    <End Type="ProjectManagement_DBModel.ProjectModule" Role="ProjectModule" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.ProjectTest" Role="ProjectTest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectModule">
+        <PropertyRef Name="proModuleGuid" />
+      </Principal>
+      <Dependent Role="ProjectTest">
+        <PropertyRef Name="proModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENT_RELATIONS_ROLE">
+    <End Type="ProjectManagement_DBModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleGuid" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="roleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TEACHER_RELATIONS_ROLE">
+    <End Type="ProjectManagement_DBModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.Teacher" Role="Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleGuid" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="roleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENT_RELATIONS_SOFTCLAS">
+    <End Type="ProjectManagement_DBModel.SoftClass" Role="SoftClass" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoftClass">
+        <PropertyRef Name="softClassGuid" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="softClassGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleButton_SysModule">
+    <End Type="ProjectManagement_DBModel.SysModule" Role="SysModule" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.SysModuleButton" Role="SysModuleButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="sysModuleGuid" />
+      </Principal>
+      <Dependent Role="SysModuleButton">
+        <PropertyRef Name="sysModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleColumn_SysModule">
+    <End Type="ProjectManagement_DBModel.SysModule" Role="SysModule" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.SysModuleColumn" Role="SysModuleColumn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="sysModuleGuid" />
+      </Principal>
+      <Dependent Role="SysModuleColumn">
+        <PropertyRef Name="sysModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleForm_SysModule">
+    <End Type="ProjectManagement_DBModel.SysModule" Role="SysModule" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.SysModuleForm" Role="SysModuleForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="sysModuleGuid" />
+      </Principal>
+      <Dependent Role="SysModuleForm">
+        <PropertyRef Name="sysModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SysItemDetails">
+    <Key>
+      <PropertyRef Name="detailGuid" />
+    </Key>
+    <Property Name="detailGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="itemGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parentGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="detailEncode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="detailName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="SysItems" Relationship="ProjectManagement_DBModel.FK_SysItemDetails_SysItems" FromRole="SysItemDetails" ToRole="SysItems" />
+  </EntityType>
+  <EntityType Name="SysItems">
+    <Key>
+      <PropertyRef Name="itemGuid" />
+    </Key>
+    <Property Name="itemGuid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parentGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="itemEnCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="itemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isDel" Type="Boolean" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createTime" Type="DateTime" Precision="3" />
+    <Property Name="createUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="lastUpdateUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="delTime" Type="DateTime" Precision="3" />
+    <Property Name="delUserGuid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEnabled" Type="Boolean" />
+    <NavigationProperty Name="SysItemDetails" Relationship="ProjectManagement_DBModel.FK_SysItemDetails_SysItems" FromRole="SysItems" ToRole="SysItemDetails" />
+  </EntityType>
+  <Association Name="FK_SysItemDetails_SysItems">
+    <End Type="ProjectManagement_DBModel.SysItems" Role="SysItems" Multiplicity="0..1" />
+    <End Type="ProjectManagement_DBModel.SysItemDetails" Role="SysItemDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysItems">
+        <PropertyRef Name="itemGuid" />
+      </Principal>
+      <Dependent Role="SysItemDetails">
+        <PropertyRef Name="itemGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

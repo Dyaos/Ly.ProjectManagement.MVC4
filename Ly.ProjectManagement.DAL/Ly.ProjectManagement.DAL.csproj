@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73F05E16-798A-43CE-85B1-1819CA8B9B6F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ly.ProjectManagement.DAL</RootNamespace>
+    <AssemblyName>Ly.ProjectManagement.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\..\..\Dyao\VS2017\Common7\IDE\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ItemDetailsRepository.cs" />
+    <Compile Include="ItemsRepository.cs" />
+    <Compile Include="AccountLoginLogRepository.cs" />
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="CrewRepository.cs" />
+    <Compile Include="DefemseRoomRepository.cs" />
+    <Compile Include="GradeRepository.cs" />
+    <Compile Include="GroupLeaderRepository.cs" />
+    <Compile Include="NoticeDefenseRepository.cs" />
+    <Compile Include="OperationRecordRepository.cs" />
+    <Compile Include="ProjectRepository.cs" />
+    <Compile Include="ProjectModuleRepository.cs" />
+    <Compile Include="ProjectModuleExamineRepository.cs" />
+    <Compile Include="ProjectPlanRepository.cs" />
+    <Compile Include="ProjectTeamRepository.cs" />
+    <Compile Include="ProjectTestRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleRepository.cs" />
+    <Compile Include="RoleAuthorizationRepository.cs" />
+    <Compile Include="R_Teacher_SoftClassRepository.cs" />
+    <Compile Include="SoftClassRepository.cs" />
+    <Compile Include="StudentRepository.cs" />
+    <Compile Include="SysModuleRepository.cs" />
+    <Compile Include="SysModuleButtonRepository.cs" />
+    <Compile Include="SysModuleColumnRepository.cs" />
+    <Compile Include="SysModuleFormRepository.cs" />
+    <Compile Include="TeacherRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ly.ProjectManagement.Code\Ly.ProjectManagement.Code.csproj">
+      <Project>{DB19CE03-C307-43FE-A209-08AA4AE10E21}</Project>
+      <Name>Ly.ProjectManagement.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ly.ProjectManagement.Data\Ly.ProjectManagement.Data.csproj">
+      <Project>{fa3c2e50-1378-444f-b7fd-1173b8f6a20d}</Project>
+      <Name>Ly.ProjectManagement.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ly.ProjectManagement.IDAL\Ly.ProjectManagement.IDAL.csproj">
+      <Project>{5BCF2A4B-F971-4CC9-8CA4-4A1AB53F4C08}</Project>
+      <Name>Ly.ProjectManagement.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ly.ProjectManagement.Model\Ly.ProjectManagement.Model.csproj">
+      <Project>{47EF319C-0908-471F-B7A8-540AE503AAD0}</Project>
+      <Name>Ly.ProjectManagement.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

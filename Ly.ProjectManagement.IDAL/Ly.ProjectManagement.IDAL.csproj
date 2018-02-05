@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BCF2A4B-F971-4CC9-8CA4-4A1AB53F4C08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ly.ProjectManagement.IDAL</RootNamespace>
+    <AssemblyName>Ly.ProjectManagement.IDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IItemDetailsRepository.cs" />
+    <Compile Include="IItemsRepository.cs" />
+    <Compile Include="IAccountLoginLogRepository.cs" />
+    <Compile Include="IBaseRepository.cs" />
+    <Compile Include="ICrewRepository.cs" />
+    <Compile Include="IDefemseRoomRepository.cs" />
+    <Compile Include="IGradeRepository.cs" />
+    <Compile Include="IGroupLeaderRepository.cs" />
+    <Compile Include="IOperationRecordRepository.cs" />
+    <Compile Include="IStudentRepository.cs" />
+    <Compile Include="INoticeDefenseRepository.cs" />
+    <Compile Include="IProjectRepository.cs" />
+    <Compile Include="IProjectModuleRepository.cs" />
+    <Compile Include="IProjectModuleExamineRepository.cs" />
+    <Compile Include="IProjectPlanRepository.cs" />
+    <Compile Include="IProjectTeamRepository.cs" />
+    <Compile Include="IProjectTestRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IRoleRepository.cs" />
+    <Compile Include="IRoleAuthorizationRepository.cs" />
+    <Compile Include="IR_Teacher_SoftClassRepository.cs" />
+    <Compile Include="ISoftClassRepository.cs" />
+    <Compile Include="ISysModuleRepository.cs" />
+    <Compile Include="ISysModuleButtonRepository.cs" />
+    <Compile Include="ISysModuleColumnRepository.cs" />
+    <Compile Include="ISysModuleFormRepository.cs" />
+    <Compile Include="ITeacherRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ly.ProjectManagement.Code\Ly.ProjectManagement.Code.csproj">
+      <Project>{DB19CE03-C307-43FE-A209-08AA4AE10E21}</Project>
+      <Name>Ly.ProjectManagement.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ly.ProjectManagement.Model\Ly.ProjectManagement.Model.csproj">
+      <Project>{47EF319C-0908-471F-B7A8-540AE503AAD0}</Project>
+      <Name>Ly.ProjectManagement.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

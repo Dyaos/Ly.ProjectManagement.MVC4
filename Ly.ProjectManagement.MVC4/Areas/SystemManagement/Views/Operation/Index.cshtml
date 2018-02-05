@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+
+<script>
+    $(function () {
+        gridList();
+    })
+    function gridList() {
+        var $gridList = $("#gridList");
+        $gridList.dataGrid({
+            url: "/SystemManagement/Operation/GetOperationRecordDataJson",
+            height: $(window).height() - 200,
+            pager: "#pager",
+            rowNum: 20,
+            rowList: [20, 30, 40],
+            colModel: [
+                { label: "guid", name: "operationGuid", hidden: true, },
+                { label: '操作表', name: 'operationTable', width: 150, align: 'left' },
+                { label: '操作类型', name: 'operationType', width: 150, align: 'left' },
+                {
+                    label: '操作时间', name: 'operationTime', width: 150, align: 'left',
+                    formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+                },
+                {
+                    label: '操作人类型', name: 'operatorType', width: 100, align: 'left',
+                    formatter: function (cellValue) {
+                        if (cellValue == "1") {
+                            return "管理员";
+                        } else {
+                            return "学生";
+                        }
+                    }
+                },
+                {
+                    label: '操作详情', name: 'operationDesc', width: 300, align: 'left',
+                    formatter: function (cellValue) {
+                        if (cellValue.length > 150) {
+                            return cellValue.substring(0, 150) + "...";
+                        }
+                        return cellValue;
+                    }
+                }
+            ],
+            sortname: 'operationGuid asc',
+            viewrecords: true
+        });
+
+        $("#time_horizon a.btn-default").click(function () {
+            $("#time_horizon a.btn-default").removeClass("active");
+            $(this).addClass("active");
+            $('#btn_search').trigger("click");
+        });
+
+        $("#btn_search").click(function () {
+            var queryJson = {
+                keyword: $("#txt_keyword").val(),
+                timeType: $("#time_horizon a.active").attr('data-value'),
+            }
+            $gridList.jqGrid('setGridParam', {
+                postData: { queryJson: JSON.stringify(queryJson) },
+            }).trigger('reloadGrid');
+        });
+    }
+    function btn_details() {
+        var keyValue = $("#gridList").jqGridRowValue().operationGuid;
+        $.modalOpen({
+            id: "Details",
+            title: "查看操作信息",
+            url: "/SystemManagement/Operation/Details?keyValue=" + keyValue,
+            width: "550px",
+            height: "420px",
+            btn: null,
+        });
+    }
+</script>
+
+<div class="topPanel">
+    <div class="toolbar">
+        <div class="btn-group">
+            <a class="btn btn-primary" onclick="$.reload()"><span class="glyphicon glyphicon-refresh"></span></a>
+        </div>
+
+        <div class="operate">
+            <ul class="nav nav-pills">
+                <li class="first">已选中<span>1</span>项</li>
+                <li><a id="Ly-Details" authorize="yes" onclick="btn_details()"><i class="fa fa-search-plus"></i>查看操作</a></li>
+            </ul>
+            <a href="javascript:;" class="close"></a>
+        </div>
+        @*<script>$('.toolbar').authorizeButton()</script>*@
+    </div>
+    <div class="search">
+        <table>
+            <tr>
+                <td>
+                    <div class="input-group">
+                        <input id="txt_keyword" type="text" class="form-control" placeholder="操作类型" style="width: 200px;">
+                        <span class="input-group-btn">
+                            <button id="btn_search" type="button" class="btn  btn-primary"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </td>
+                <td style="padding-left: 10px;">
+                    <div id="time_horizon" class="btn-group">
+                        <a class="btn btn-default" data-value="1">今天</a>
+                        <a class="btn btn-default" data-value="2">近7天</a>
+                        <a class="btn btn-default" data-value="3">近1个月</a>
+                        <a class="btn btn-default" data-value="4">近3个月</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="gridPanel">
+    <table id="gridList"></table>
+    <div id="pager"></div>
+</div>

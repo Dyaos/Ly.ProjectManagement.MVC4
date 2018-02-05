@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object name="AccountLoginLogApp" type="Ly.ProjectManagement.BLL.AccountLoginLogApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="AccountLoginLogRepository"/>
+  </object>
+  <object name="StudentApp" type="Ly.ProjectManagement.BLL.StudentApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="StudentRepository"/>
+  </object>
+  <object name="TeacherApp" type="Ly.ProjectManagement.BLL.TeacherApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="TeacherRepository"/>
+  </object>
+  <object name="RoleApp" type="Ly.ProjectManagement.BLL.RoleApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="RoleRepository"/>
+  </object>
+  <object name="RoleAuthApp" type="Ly.ProjectManagement.BLL.RoleAuthorizationApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="SysModuleApp"/>
+    <constructor-arg index="1" ref="SysModuleBtnApp"/>
+    <constructor-arg index="2" ref="RoleApp"/>
+    <constructor-arg index="3" ref="RoleAuthRepository"/>
+  </object>
+  <object name="SysModuleBtnApp" type="Ly.ProjectManagement.BLL.SysModuleButtonApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="SysModuleBtnRepository"/>
+  </object>
+  <object name="SysModuleApp" type="Ly.ProjectManagement.BLL.SysModuleApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="SysModuleRepository"/>
+  </object>
+  <object name="OperationRecordApp" type="Ly.ProjectManagement.BLL.OperationRecordApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="OperationRecordRepository"/>
+  </object>
+  <object name="SoftClassApp" type="Ly.ProjectManagement.BLL.SoftClassApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="SoftClassRepository"/>
+  </object>
+  <object name="GradeApp" type="Ly.ProjectManagement.BLL.GradeApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="GradeRepository"/>
+  </object>
+  <object name="GroupLeaderApp" type="Ly.ProjectManagement.BLL.GroupLeaderApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="GroupLeaderRepository"/>
+  </object>
+  <object name="CrewApp" type="Ly.ProjectManagement.BLL.CrewApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="CrewRepository"/>
+  </object>
+  <object name="DefemseRoomApp" type="Ly.ProjectManagement.BLL.DefemseRoomApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="DefemseRoomRepository"/>
+  </object>
+  <object name="NoticeDefenseApp" type="Ly.ProjectManagement.BLL.NoticeDefenseApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="NoticeDefenseRepository"/>
+  </object>
+  <object name="ProjectApp" type="Ly.ProjectManagement.BLL.ProjectApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ProjectRepository"/>
+  </object>
+  <object name="ProjectModuleApp" type="Ly.ProjectManagement.BLL.ProjectModuleApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ProjectModuleRepository"/>
+  </object>
+  <object name="ProjectModuleExamineApp" type="Ly.ProjectManagement.BLL.ProjectModuleExamineApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ProjectModuleExamineRepository"/>
+  </object>
+  <object name="ProjectPlanApp" type="Ly.ProjectManagement.BLL.ProjectPlanApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ProjectPlanRepository"/>
+  </object>
+  <object name="ProjectTeamApp" type="Ly.ProjectManagement.BLL.ProjectTeamApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ProjectTeamRepository"/>
+  </object>
+  <object name="ProjectTestApp" type="Ly.ProjectManagement.BLL.ProjectTestApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ProjectTestRepository"/>
+  </object>
+  <object name="R_Teacher_SoftClassApp" type="Ly.ProjectManagement.BLL.R_Teacher_SoftClassApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="R_Teacher_SoftClassRepository"/>
+  </object>
+  <object name="SysModuleColumnApp" type="Ly.ProjectManagement.BLL.SysModuleColumnApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="SysModuleColumnRepository"/>
+  </object>
+  <object name="SysModuleFormApp" type="Ly.ProjectManagement.BLL.SysModuleFormApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="SysModuleFormRepository"/>
+  </object>
+  <object name="ItemDetailsApp" type="Ly.ProjectManagement.BLL.ItemDetailsApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ItemDetailsRepository"/>
+  </object>
+  <object name="ItemsApp" type="Ly.ProjectManagement.BLL.ItemsApp,Ly.ProjectManagement.BLL" singleton="false">
+    <constructor-arg index="0" ref="ItemsRepository"/>
+  </object>
+</objects>

@@ -1,0 +1,16 @@
+C:\Users\Dyao\Desktop\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\bin\Debug\Ly.ProjectManagement.SiteApi.dll
+C:\Users\Dyao\Desktop\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\bin\Debug\Ly.ProjectManagement.SiteApi.pdb
+C:\Users\Dyao\Desktop\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.csproj.CoreCompileInputs.cache
+C:\Users\Dyao\Desktop\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.dll
+C:\Users\Dyao\Desktop\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.pdb
+E:\毕业项目\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\bin\Debug\Ly.ProjectManagement.SiteApi.dll
+E:\毕业项目\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\bin\Debug\Ly.ProjectManagement.SiteApi.pdb
+E:\毕业项目\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.dll
+E:\毕业项目\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.pdb
+E:\毕业项目\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.csprojResolveAssemblyReference.cache
+D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\bin\Debug\Ly.ProjectManagement.SiteApi.dll
+D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\bin\Debug\Ly.ProjectManagement.SiteApi.pdb
+D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.csprojResolveAssemblyReference.cache
+D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.csproj.CoreCompileInputs.cache
+D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.dll
+D:\SVN\ProjectManagement\Ly.ProjectManagement.MVC4\Ly.ProjectManagement.SiteApi\obj\Debug\Ly.ProjectManagement.SiteApi.pdb

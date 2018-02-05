@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+
+<script>
+    var details = {
+        getKeyValue: function () {
+            return $.request("keyValue");
+        },
+        ajaxData: function () {
+            if (!!details.getKeyValue()) {
+                $.ajax({
+                    url: "/SystemManagement/Operation/GetFormJson",
+                    data: { keyValue: details.getKeyValue() },
+                    method: "POST",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        $("#frmModule").formSerialize(data);
+                        $("#frmModule").find("input,.form-control,select").attr('readonly', 'readonly')
+                    }
+                })
+            }
+        }
+    };
+    $(function () {
+        details.ajaxData();
+    })
+</script>
+<form id="frmModule">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">基本信息</a></li>
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">操作表</th>
+                    <td class="formValue">
+                        <input id="operationTable" name="operationTable" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">操作类型</th>
+                    <td class="formValue">
+                        <input id="operationType" name="operationType" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">操作时间</th>
+                    <td class="formValue">
+                        <input id="operationTime" name="operationTime" type="text" class="form-control" placeholder="请输入等级" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        操作详情
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="operationDesc" name="operationDesc" class="form-control" style="height: 200px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

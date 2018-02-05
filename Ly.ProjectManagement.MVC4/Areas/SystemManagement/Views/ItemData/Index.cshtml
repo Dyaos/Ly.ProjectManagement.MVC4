@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+<script>
+    //渲染TreeView
+    function treeView() {
+        $("#itemTree").treeview({
+            url: "/SystemManagement/ItemType/GetTreeJson",
+            onnodeclick: function (item) {
+                $("#txt_keyword").val('');
+                $('#btn_search').trigger("click");
+            }
+        });
+    };
+
+
+    var itemGrid = {
+        initGrid: function () {
+            itemGrid.initControls();
+            var $gridList = $("#gridList");
+            $gridList.dataGrid({
+                url: '/SystemManagement/ItemData/GetGridDataJson',
+                height: $(window).height() - 160,
+                pager: "#pager",
+                rowNum: 20,
+                rowList: [20, 30, 40],
+                viewrecords: true,
+                colModel: [
+                    { label: "guid", name: "detailGuid", hidden: true, key: true },
+                    { label: '名称', name: 'detailName', width: 150, align: 'left' },
+                    { label: '编号', name: 'detailEncode', width: 150, align: 'left' },
+                    {
+                        label: '创建时间', name: 'createTime', width: 150, align: 'left',
+                        formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+                    },
+                    {
+                        label: '有效', name: 'isEnabled', width: 150, align: 'left',
+                        formatter: function (cellvalue) {
+                            return cellvalue == true ? "<i class=\"fa fa-toggle-on\"></i>" : "<i class=\"fa fa-toggle-off\"></i>";
+                        }
+                    },
+                    { label: '备注', name: 'remarks', width: 500, align: 'left' },
+                ],
+                sortname: "detailGuid asc"
+            })
+        },
+        btnDetails: function () {
+            $.modalOpen({
+                id: "Details",
+                title: "查看字典",
+                url: "/SystemManagement/ItemData/Details?keyValue=" + itemGrid.getSelectRowGuid(),
+                width: "750px",
+                height: "420px",
+                btn: null,
+            });
+        },
+        btnAdd: function () {
+            var currentNode = $("#itemTree").getCurrentNode();
+            console.log(currentNode);
+            if (!currentNode || currentNode.parentnodes == "0") {
+                $.modalMsg("请选择分类", "error");
+                return false;
+            }
+            var itemId = $("#itemTree").getCurrentNode().id;
+            var itemName = $("#itemTree").getCurrentNode().text;
+            $.modalOpen({
+                id: "Form",
+                title: itemName + ">>新增字典",
+                url: "/SystemManagement/ItemData/Form?itemGuid=" + itemId,
+                width: "500px",
+                height: "420px",
+                callBack: function (iframeId) {
+                    top.frames[iframeId].details.submitForm();
+                }
+            });
+        },
+        btnDelete: function () {
+            $.deleteForm({
+                url: "/SystemManagement/ItemData/DeleteForm",
+                param: { keyValue: itemGrid.getSelectRowGuid() },
+                success: function () {
+                    $("#gridList").resetSelection();
+                    $("#gridList").trigger("reloadGrid");
+                }
+            })
+        },
+        btnEdit: function () {
+            var currentNode = $("#itemTree").getCurrentNode();
+            if (!currentNode || currentNode.parentnodes == "0") {
+                $.modalMsg("请选择分类", "error");
+                return false;
+            }
+            var itemId = $("#itemTree").getCurrentNode().id;
+            var itemName = $("#itemTree").getCurrentNode().text;
+            $.modalOpen({
+                id: "Form",
+                title: itemName + ">>编辑字典",
+                url: "/SystemManagement/ItemData/Form?keyValue=" + itemGrid.getSelectRowGuid(),
+                width: "500px",
+                height: "420px",
+                callBack: function (iframeId) {
+                    top.frames[iframeId].details.submitForm();
+                }
+            });
+        },
+        btnItemType: function () {
+            $.modalOpen({
+                id: "ItemsType",
+                title: "字典分类",
+                url: "/SystemManagement/ItemType/Index",
+                width: "800px",
+                height: "550px",
+            });
+        },
+        getSelectRowGuid: function () {
+            var keyValue = $("#gridList").jqGridRowValue().detailGuid;
+            return keyValue;
+        },
+        initControls: function () {
+            $('#layout').layout();
+            treeView();
+            $("#btn_search").click(function () {
+                $("#gridList").jqGrid('setGridParam', {
+                    url: "/SystemManagement/ItemData/GetGridDataJson",
+                    postData: { itemGuid: $("#itemTree").getCurrentNode().id, keyword: $("#txt_keyword").val() },
+                }).trigger('reloadGrid');
+            });
+        },
+    };
+
+    $(function () {
+        itemGrid.initGrid();
+    });
+</script>
+<div class="ui-layout" id="layout" style="height:100%; width: 100%;">
+    <div class="ui-layout-west">
+        <div id="itemTree"></div>
+    </div>
+    <div class="ui-layout-center">
+        <div class="topPanel">
+            <div class="toolbar">
+                <div class="btn-group">
+                    <a class="btn btn-primary" onclick="$.reload()"><span class="glyphicon glyphicon-refresh"></span></a>
+                </div>
+                <div class="btn-group">
+                    <a id="Ly-add" authorize="yes" class="btn btn-primary dropdown-text" onclick="itemGrid.btnAdd()"><i class="fa fa-plus"></i>新建字典</a>
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a id="Ly-itemstype" authorize="yes" onclick="itemGrid.btnItemType()" href="">分类管理</a></li>
+                    </ul>
+                </div>
+                <div class="operate">
+                    <ul class="nav nav-pills">
+                        <li class="first">已选中<span>1</span>项</li>
+                        <li><a id="Ly-edit" authorize="yes" onclick="itemGrid.btnEdit()"><i class="fa fa-pencil-square-o"></i>修改字典</a></li>
+                        <li><a id="Ly-delete" authorize="yes" onclick="itemGrid.btnDelete()"><i class="fa fa-trash-o"></i>删除字典</a></li>
+                        <li><a id="Ly-Details" authorize="yes" onclick="itemGrid.btnDetails()"><i class="fa fa-search-plus"></i>查看字典</a></li>
+                    </ul>
+                    <a href="javascript:;" class="close"></a>
+                </div>
+                @*<script>$('.toolbar').authorizeButton()</script>*@
+            </div>
+            <div class="search">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <input id="txt_keyword" type="text" class="form-control" placeholder="名称/编号" style="width: 200px;">
+                                <span class="input-group-btn">
+                                    <button id="btn_search" type="button" class="btn  btn-primary"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="gridPanel">
+            <table id="gridList"></table>
+            <div id="pager"></div>
+        </div>
+    </div>
+</div>

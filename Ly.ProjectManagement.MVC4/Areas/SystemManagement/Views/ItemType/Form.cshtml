@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<script>
+    var details = {
+        getKeyValue: function () {
+            return $.request("keyValue");
+        },
+        initControl: function () {
+            $("#parentGuid").bindSelect({
+                url: "/SystemManagement/ItemType/GetTreeSelectJson"
+            });
+        },
+        ajaxData: function () {
+            details.initControl();
+            if (!!details.getKeyValue()) {
+                $.ajax({
+                    url: "/SystemManagement/ItemType/GetFormJson",
+                    data: { keyValue: details.getKeyValue() },
+                    method: "POST",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        $("#frmModule").formSerialize(data);
+                    }
+                })
+            }
+        },
+        submitForm: function () {
+            if (!$("#frmModule").formValid()) {
+                return false;
+            }
+            $.submitForm({
+                url: "/SystemManagement/ItemType/SubmitForm?keyValue=" + details.getKeyValue(),
+                param: $("#frmModule").formSerialize(),
+                success: function () {
+                    top.ItemsType.$("#gridList").resetSelection();
+                    top.ItemsType.$("#gridList").trigger("reloadGrid");
+                    $.currentWindow().$("#gridList").resetSelection();
+                    $.currentWindow().$("#gridList").trigger("reloadGrid");
+                }
+            });
+        }
+    };
+
+    $(function () {
+        details.ajaxData();
+    })
+</script>
+
+<form id="frmModule">
+    <div style="padding-top: 20px; margin-right: 20px;">
+        <table class="form">
+            <tr>
+                <th class="formTitle">上级</th>
+                <td class="formValue">
+                    <select id="parentGuid" name="parentGuid" class="form-control required">
+                        <option value="0">父节点</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">名称</th>
+                <td class="formValue">
+                    <input id="itemName" name="itemName" type="text" class="form-control required" placeholder="请输入名称" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle">编号</th>
+                <td class="formValue">
+                    <input id="itemEnCode" name="itemEnCode" type="text" class="form-control required" placeholder="请输入编号" />
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle" style="height: 35px;">选项</th>
+                <td class="formValue" style="padding-top: 1px;">
+                    <div class="ckbox">
+                        <input id="isEnabled" name="isEnabled" type="checkbox" checked="checked"><label for="F_EnabledMark">有效</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="formTitle" valign="top" style="padding-top: 5px;">
+                    备注
+                </th>
+                <td class="formValue">
+                    <textarea id="remarks" name="remarks" class="form-control" style="height: 60px;"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

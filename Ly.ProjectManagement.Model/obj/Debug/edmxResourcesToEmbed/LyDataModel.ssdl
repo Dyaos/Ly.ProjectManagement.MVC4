@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectManagement_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountLoginLog">
+    <Key>
+      <PropertyRef Name="logGuid" />
+    </Key>
+    <Property Name="logGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="userGuid" Type="varchar" MaxLength="50" />
+    <Property Name="loginType" Type="int" />
+    <Property Name="loginIpAddress" Type="varchar" MaxLength="50" />
+    <Property Name="loginTime" Type="datetime" />
+    <Property Name="loginIpAddressName" Type="varchar" MaxLength="50" />
+    <Property Name="loginName" Type="varchar" MaxLength="50" />
+    <Property Name="loginResult" Type="varchar" MaxLength="50" />
+    <Property Name="loginDescription" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ClassLeader">
+    <Key>
+      <PropertyRef Name="classLeaderGuid" />
+    </Key>
+    <Property Name="classLeaderGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="softClassGuid" Type="varchar" MaxLength="50" />
+    <Property Name="techerType" Type="varchar" MaxLength="50" />
+    <Property Name="classTeacherGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Crew">
+    <Key>
+      <PropertyRef Name="crewGuid" />
+    </Key>
+    <Property Name="crewGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="teamGuid" Type="varchar" MaxLength="50" />
+    <Property Name="crewStuGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="DefemseRoom">
+    <Key>
+      <PropertyRef Name="defemseRoomGuid" />
+    </Key>
+    <Property Name="defemseRoomGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="defemseTeacherGuid" Type="varchar" MaxLength="50" />
+    <Property Name="instructorGuid" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="planGuid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="gradeGuid" />
+    </Key>
+    <Property Name="gradeGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="gradeName" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="GroupLeader">
+    <Key>
+      <PropertyRef Name="leaderGuid" />
+    </Key>
+    <Property Name="leaderGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="planGuid" Type="varchar" MaxLength="50" />
+    <Property Name="roleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="leaderStuGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="NoticeDefense">
+    <Key>
+      <PropertyRef Name="noticeGuid" />
+    </Key>
+    <Property Name="noticeGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="teamGuid" Type="varchar" MaxLength="50" />
+    <Property Name="defemseRoomGuid" Type="varchar" MaxLength="50" />
+    <Property Name="noticeTime" Type="datetime" />
+    <Property Name="defenseTime" Type="datetime" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OperationRecord">
+    <Key>
+      <PropertyRef Name="operationGuid" />
+    </Key>
+    <Property Name="operationGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="operatorGuid" Type="varchar" MaxLength="50" />
+    <Property Name="operationTable" Type="varchar" MaxLength="50" />
+    <Property Name="operationType" Type="varchar" MaxLength="50" />
+    <Property Name="operatorType" Type="int" />
+    <Property Name="operationTime" Type="datetime" />
+    <Property Name="operationDesc" Type="text" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="projectGuid" />
+    </Key>
+    <Property Name="projectGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="teamGuid" Type="varchar" MaxLength="50" />
+    <Property Name="projectName" Type="varchar" MaxLength="50" />
+    <Property Name="projectDesc" Type="text" />
+    <Property Name="projectTarget" Type="text" />
+    <Property Name="proApproval" Type="varchar" MaxLength="50" />
+    <Property Name="proPlan" Type="varchar" MaxLength="50" />
+    <Property Name="proDemand" Type="varchar" MaxLength="50" />
+    <Property Name="proDesign" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="ProjectModule">
+    <Key>
+      <PropertyRef Name="proModuleGuid" />
+    </Key>
+    <Property Name="proModuleGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="teamGuid" Type="varchar" MaxLength="50" />
+    <Property Name="parentModuleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="proModuleType" Type="int" />
+    <Property Name="proStartTime" Type="datetime" />
+    <Property Name="proEndTime" Type="datetime" />
+    <Property Name="proCompletiontime" Type="datetime" />
+    <Property Name="proModuleStatus" Type="int" />
+    <Property Name="proTestStatus" Type="int" />
+    <Property Name="proModuleScore" Type="int" />
+    <Property Name="proModuleLv" Type="int" />
+    <Property Name="defenceScore" Type="int" />
+    <Property Name="defenceTeacherGuid" Type="varchar" MaxLength="50" />
+    <Property Name="executorGuid" Type="varchar" MaxLength="50" />
+    <Property Name="testGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="ProjectModuleExamine">
+    <Key>
+      <PropertyRef Name="proModuleGuid2" />
+    </Key>
+    <Property Name="proModuleGuid2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="parentModuleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="proModuleType" Type="int" />
+    <Property Name="proStartTime" Type="datetime" />
+    <Property Name="proEndTime" Type="datetime" />
+    <Property Name="proCompletiontime" Type="datetime" />
+    <Property Name="proModuleStatus" Type="int" />
+    <Property Name="proTestStatus" Type="int" />
+    <Property Name="proModuleScore" Type="int" />
+    <Property Name="proModuleLv" Type="int" />
+    <Property Name="defenceScore" Type="int" />
+    <Property Name="defenceTeacherGuid" Type="varchar" MaxLength="50" />
+    <Property Name="executorGuid" Type="varchar" MaxLength="50" />
+    <Property Name="testGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="ProjectPlan">
+    <Key>
+      <PropertyRef Name="planGuid" />
+    </Key>
+    <Property Name="planGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="gradeGuid" Type="varchar" MaxLength="50" />
+    <Property Name="planName" Type="varchar" MaxLength="50" />
+    <Property Name="planType" Type="varchar" MaxLength="50" />
+    <Property Name="planBeginTime" Type="datetime" />
+    <Property Name="planEndTime" Type="datetime" />
+    <Property Name="planStatus" Type="bit" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="ProjectTeam">
+    <Key>
+      <PropertyRef Name="teamGuid" />
+    </Key>
+    <Property Name="teamGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="leaderGuid" Type="varchar" MaxLength="50" />
+    <Property Name="teamName" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="ProjectTest">
+    <Key>
+      <PropertyRef Name="proTestGuid" />
+    </Key>
+    <Property Name="proTestGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="proModuleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="proMuduleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="testStatus" Type="int" />
+    <Property Name="testGuid" Type="varchar" MaxLength="50" />
+    <Property Name="testTime" Type="datetime" />
+    <Property Name="testPresentation" Type="text" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="roleGuid" />
+    </Key>
+    <Property Name="roleGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="roleName" Type="varchar" MaxLength="50" />
+    <Property Name="roleLv" Type="int" />
+    <Property Name="sortCode" Type="int" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="RoleAuthorization">
+    <Key>
+      <PropertyRef Name="authGuid" />
+    </Key>
+    <Property Name="authGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="authModuleType" Type="int" />
+    <Property Name="authModuleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="authRoleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="sortCode" Type="int" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SoftClass">
+    <Key>
+      <PropertyRef Name="softClassGuid" />
+    </Key>
+    <Property Name="softClassGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="gradeGuid" Type="varchar" MaxLength="50" />
+    <Property Name="softClassName" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="stuGuid" />
+    </Key>
+    <Property Name="stuGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="roleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="softClassGuid" Type="varchar" MaxLength="50" />
+    <Property Name="stuNo" Type="varchar" MaxLength="50" />
+    <Property Name="stuPwd" Type="varchar" MaxLength="50" />
+    <Property Name="stuName" Type="varchar" MaxLength="50" />
+    <Property Name="stuSex" Type="bit" />
+    <Property Name="stuNation" Type="varchar" MaxLength="50" />
+    <Property Name="stuBirthday" Type="varchar" MaxLength="50" />
+    <Property Name="stuCard" Type="varchar" MaxLength="50" />
+    <Property Name="stuPlace" Type="varchar" MaxLength="50" />
+    <Property Name="stuQQ" Type="varchar" MaxLength="50" />
+    <Property Name="stuWeChat" Type="varchar" MaxLength="50" />
+    <Property Name="stuPhone" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="SysItemDetails">
+    <Key>
+      <PropertyRef Name="detailGuid" />
+    </Key>
+    <Property Name="detailGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="itemGuid" Type="varchar" MaxLength="50" />
+    <Property Name="parentGuid" Type="varchar" MaxLength="50" />
+    <Property Name="detailEncode" Type="varchar" MaxLength="50" />
+    <Property Name="detailName" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="SysItems">
+    <Key>
+      <PropertyRef Name="itemGuid" />
+    </Key>
+    <Property Name="itemGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="parentGuid" Type="varchar" MaxLength="50" />
+    <Property Name="itemEnCode" Type="varchar" MaxLength="50" />
+    <Property Name="itemName" Type="varchar" MaxLength="50" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="sysModuleGuid" />
+    </Key>
+    <Property Name="sysModuleGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="parentGuid" Type="varchar" MaxLength="50" />
+    <Property Name="sysModuleLv" Type="int" />
+    <Property Name="sysModuleName" Type="varchar" MaxLength="50" />
+    <Property Name="sysModuleIcon" Type="varchar" MaxLength="50" />
+    <Property Name="sysModuleUri" Type="varchar" MaxLength="50" />
+    <Property Name="sysModuleTarget" Type="varchar" MaxLength="50" />
+    <Property Name="isMuen" Type="bit" />
+    <Property Name="sortCode" Type="int" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="SysModuleButton">
+    <Key>
+      <PropertyRef Name="sysBtnGuid" />
+    </Key>
+    <Property Name="sysBtnGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sysBtnName" Type="varchar" MaxLength="50" />
+    <Property Name="sysBtnIcon" Type="varchar" MaxLength="50" />
+    <Property Name="sysBtnEvent" Type="varchar" MaxLength="50" />
+    <Property Name="sysBtnUrlAddress" Type="varchar" MaxLength="50" />
+    <Property Name="sortCode" Type="int" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="sysModuleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="sysEnCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SysModuleColumn">
+    <Key>
+      <PropertyRef Name="sysColumnGuid" />
+    </Key>
+    <Property Name="sysColumnGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sysModuleGuid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SysModuleForm">
+    <Key>
+      <PropertyRef Name="sysFormGuid" />
+    </Key>
+    <Property Name="sysFormGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sysModuleGuid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="teacherGuid" />
+    </Key>
+    <Property Name="teacherGuid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="roleGuid" Type="varchar" MaxLength="50" />
+    <Property Name="jobNumber" Type="varchar" MaxLength="50" />
+    <Property Name="teacherPwd" Type="varchar" MaxLength="50" />
+    <Property Name="teacherType" Type="int" />
+    <Property Name="teacherName" Type="varchar" MaxLength="50" />
+    <Property Name="teacherNation" Type="varchar" MaxLength="50" />
+    <Property Name="teacherPlace" Type="varchar" MaxLength="50" />
+    <Property Name="teacherSex" Type="bit" />
+    <Property Name="teacherBirthday" Type="varchar" MaxLength="50" />
+    <Property Name="stuQQ" Type="varchar" MaxLength="50" />
+    <Property Name="stuWeChat" Type="varchar" MaxLength="50" />
+    <Property Name="stuPhone" Type="varchar" MaxLength="50" />
+    <Property Name="sortCode" Type="int" />
+    <Property Name="isDel" Type="bit" />
+    <Property Name="remarks" Type="varchar" MaxLength="50" />
+    <Property Name="createTime" Type="datetime" />
+    <Property Name="createUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="lastUpdateTime" Type="datetime" />
+    <Property Name="lastUpdateUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="delTime" Type="datetime" />
+    <Property Name="delUserGuid" Type="varchar" MaxLength="50" />
+    <Property Name="isEnabled" Type="bit" />
+  </EntityType>
+  <Association Name="FK_CLASSLEA_RELATIONS_SOFTCLAS">
+    <End Role="SoftClass" Type="Self.SoftClass" Multiplicity="0..1" />
+    <End Role="ClassLeader" Type="Self.ClassLeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoftClass">
+        <PropertyRef Name="softClassGuid" />
+      </Principal>
+      <Dependent Role="ClassLeader">
+        <PropertyRef Name="softClassGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CREW_RELATIONS_PROJECTT">
+    <End Role="ProjectTeam" Type="Self.ProjectTeam" Multiplicity="0..1" />
+    <End Role="Crew" Type="Self.Crew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="Crew">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DefemseRoom_ProjectPlan">
+    <End Role="ProjectPlan" Type="Self.ProjectPlan" Multiplicity="0..1" />
+    <End Role="DefemseRoom" Type="Self.DefemseRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectPlan">
+        <PropertyRef Name="planGuid" />
+      </Principal>
+      <Dependent Role="DefemseRoom">
+        <PropertyRef Name="planGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GROUPLEA_RELATIONS_PROJECTP">
+    <End Role="ProjectPlan" Type="Self.ProjectPlan" Multiplicity="0..1" />
+    <End Role="GroupLeader" Type="Self.GroupLeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectPlan">
+        <PropertyRef Name="planGuid" />
+      </Principal>
+      <Dependent Role="GroupLeader">
+        <PropertyRef Name="planGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GROUPLEA_RELATIONS_ROLE">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="GroupLeader" Type="Self.GroupLeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleGuid" />
+      </Principal>
+      <Dependent Role="GroupLeader">
+        <PropertyRef Name="roleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTICEDE_RELATIONS_DEFEMSER">
+    <End Role="DefemseRoom" Type="Self.DefemseRoom" Multiplicity="0..1" />
+    <End Role="NoticeDefense" Type="Self.NoticeDefense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DefemseRoom">
+        <PropertyRef Name="defemseRoomGuid" />
+      </Principal>
+      <Dependent Role="NoticeDefense">
+        <PropertyRef Name="defemseRoomGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTICEDE_RELATIONS_PROJECTT">
+    <End Role="ProjectTeam" Type="Self.ProjectTeam" Multiplicity="0..1" />
+    <End Role="NoticeDefense" Type="Self.NoticeDefense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="NoticeDefense">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECT_RELATIONS_PROJECTT">
+    <End Role="ProjectTeam" Type="Self.ProjectTeam" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTM_RELATIONS_PROJECTT">
+    <End Role="ProjectTeam" Type="Self.ProjectTeam" Multiplicity="0..1" />
+    <End Role="ProjectModule" Type="Self.ProjectModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTeam">
+        <PropertyRef Name="teamGuid" />
+      </Principal>
+      <Dependent Role="ProjectModule">
+        <PropertyRef Name="teamGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTP_RELATIONS_GRADE">
+    <End Role="Grade" Type="Self.Grade" Multiplicity="0..1" />
+    <End Role="ProjectPlan" Type="Self.ProjectPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade">
+        <PropertyRef Name="gradeGuid" />
+      </Principal>
+      <Dependent Role="ProjectPlan">
+        <PropertyRef Name="gradeGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTT_RELATIONS_GROUPLEA">
+    <End Role="GroupLeader" Type="Self.GroupLeader" Multiplicity="0..1" />
+    <End Role="ProjectTeam" Type="Self.ProjectTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupLeader">
+        <PropertyRef Name="leaderGuid" />
+      </Principal>
+      <Dependent Role="ProjectTeam">
+        <PropertyRef Name="leaderGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROJECTT_RELATIONS_PROJECTM">
+    <End Role="ProjectModule" Type="Self.ProjectModule" Multiplicity="0..1" />
+    <End Role="ProjectTest" Type="Self.ProjectTest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectModule">
+        <PropertyRef Name="proModuleGuid" />
+      </Principal>
+      <Dependent Role="ProjectTest">
+        <PropertyRef Name="proModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOFTCLAS_RELATIONS_GRADE">
+    <End Role="Grade" Type="Self.Grade" Multiplicity="0..1" />
+    <End Role="SoftClass" Type="Self.SoftClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade">
+        <PropertyRef Name="gradeGuid" />
+      </Principal>
+      <Dependent Role="SoftClass">
+        <PropertyRef Name="gradeGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENT_RELATIONS_ROLE">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleGuid" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="roleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENT_RELATIONS_SOFTCLAS">
+    <End Role="SoftClass" Type="Self.SoftClass" Multiplicity="0..1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoftClass">
+        <PropertyRef Name="softClassGuid" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="softClassGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysItemDetails_SysItems">
+    <End Role="SysItems" Type="Self.SysItems" Multiplicity="0..1" />
+    <End Role="SysItemDetails" Type="Self.SysItemDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysItems">
+        <PropertyRef Name="itemGuid" />
+      </Principal>
+      <Dependent Role="SysItemDetails">
+        <PropertyRef Name="itemGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleButton_SysModule">
+    <End Role="SysModule" Type="Self.SysModule" Multiplicity="0..1" />
+    <End Role="SysModuleButton" Type="Self.SysModuleButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="sysModuleGuid" />
+      </Principal>
+      <Dependent Role="SysModuleButton">
+        <PropertyRef Name="sysModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleColumn_SysModule">
+    <End Role="SysModule" Type="Self.SysModule" Multiplicity="0..1" />
+    <End Role="SysModuleColumn" Type="Self.SysModuleColumn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="sysModuleGuid" />
+      </Principal>
+      <Dependent Role="SysModuleColumn">
+        <PropertyRef Name="sysModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SysModuleForm_SysModule">
+    <End Role="SysModule" Type="Self.SysModule" Multiplicity="0..1" />
+    <End Role="SysModuleForm" Type="Self.SysModuleForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SysModule">
+        <PropertyRef Name="sysModuleGuid" />
+      </Principal>
+      <Dependent Role="SysModuleForm">
+        <PropertyRef Name="sysModuleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TEACHER_RELATIONS_ROLE">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleGuid" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="roleGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjectManagement_DBModelStoreContainer">
+    <EntitySet Name="AccountLoginLog" EntityType="Self.AccountLoginLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassLeader" EntityType="Self.ClassLeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Crew" EntityType="Self.Crew" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DefemseRoom" EntityType="Self.DefemseRoom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupLeader" EntityType="Self.GroupLeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NoticeDefense" EntityType="Self.NoticeDefense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OperationRecord" EntityType="Self.OperationRecord" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectModule" EntityType="Self.ProjectModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectModuleExamine" EntityType="Self.ProjectModuleExamine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectPlan" EntityType="Self.ProjectPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectTeam" EntityType="Self.ProjectTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectTest" EntityType="Self.ProjectTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleAuthorization" EntityType="Self.RoleAuthorization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SoftClass" EntityType="Self.SoftClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysItemDetails" EntityType="Self.SysItemDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysItems" EntityType="Self.SysItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysModule" EntityType="Self.SysModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysModuleButton" EntityType="Self.SysModuleButton" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysModuleColumn" EntityType="Self.SysModuleColumn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysModuleForm" EntityType="Self.SysModuleForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CLASSLEA_RELATIONS_SOFTCLAS" Association="Self.FK_CLASSLEA_RELATIONS_SOFTCLAS">
+      <End Role="SoftClass" EntitySet="SoftClass" />
+      <End Role="ClassLeader" EntitySet="ClassLeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CREW_RELATIONS_PROJECTT" Association="Self.FK_CREW_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="Crew" EntitySet="Crew" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DefemseRoom_ProjectPlan" Association="Self.FK_DefemseRoom_ProjectPlan">
+      <End Role="ProjectPlan" EntitySet="ProjectPlan" />
+      <End Role="DefemseRoom" EntitySet="DefemseRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GROUPLEA_RELATIONS_PROJECTP" Association="Self.FK_GROUPLEA_RELATIONS_PROJECTP">
+      <End Role="ProjectPlan" EntitySet="ProjectPlan" />
+      <End Role="GroupLeader" EntitySet="GroupLeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GROUPLEA_RELATIONS_ROLE" Association="Self.FK_GROUPLEA_RELATIONS_ROLE">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="GroupLeader" EntitySet="GroupLeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTICEDE_RELATIONS_DEFEMSER" Association="Self.FK_NOTICEDE_RELATIONS_DEFEMSER">
+      <End Role="DefemseRoom" EntitySet="DefemseRoom" />
+      <End Role="NoticeDefense" EntitySet="NoticeDefense" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTICEDE_RELATIONS_PROJECTT" Association="Self.FK_NOTICEDE_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="NoticeDefense" EntitySet="NoticeDefense" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECT_RELATIONS_PROJECTT" Association="Self.FK_PROJECT_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTM_RELATIONS_PROJECTT" Association="Self.FK_PROJECTM_RELATIONS_PROJECTT">
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+      <End Role="ProjectModule" EntitySet="ProjectModule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTP_RELATIONS_GRADE" Association="Self.FK_PROJECTP_RELATIONS_GRADE">
+      <End Role="Grade" EntitySet="Grade" />
+      <End Role="ProjectPlan" EntitySet="ProjectPlan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTT_RELATIONS_GROUPLEA" Association="Self.FK_PROJECTT_RELATIONS_GROUPLEA">
+      <End Role="GroupLeader" EntitySet="GroupLeader" />
+      <End Role="ProjectTeam" EntitySet="ProjectTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROJECTT_RELATIONS_PROJECTM" Association="Self.FK_PROJECTT_RELATIONS_PROJECTM">
+      <End Role="ProjectModule" EntitySet="ProjectModule" />
+      <End Role="ProjectTest" EntitySet="ProjectTest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOFTCLAS_RELATIONS_GRADE" Association="Self.FK_SOFTCLAS_RELATIONS_GRADE">
+      <End Role="Grade" EntitySet="Grade" />
+      <End Role="SoftClass" EntitySet="SoftClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENT_RELATIONS_ROLE" Association="Self.FK_STUDENT_RELATIONS_ROLE">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENT_RELATIONS_SOFTCLAS" Association="Self.FK_STUDENT_RELATIONS_SOFTCLAS">
+      <End Role="SoftClass" EntitySet="SoftClass" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysItemDetails_SysItems" Association="Self.FK_SysItemDetails_SysItems">
+      <End Role="SysItems" EntitySet="SysItems" />
+      <End Role="SysItemDetails" EntitySet="SysItemDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleButton_SysModule" Association="Self.FK_SysModuleButton_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleButton" EntitySet="SysModuleButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleColumn_SysModule" Association="Self.FK_SysModuleColumn_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleColumn" EntitySet="SysModuleColumn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SysModuleForm_SysModule" Association="Self.FK_SysModuleForm_SysModule">
+      <End Role="SysModule" EntitySet="SysModule" />
+      <End Role="SysModuleForm" EntitySet="SysModuleForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TEACHER_RELATIONS_ROLE" Association="Self.FK_TEACHER_RELATIONS_ROLE">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Teacher" EntitySet="Teacher" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

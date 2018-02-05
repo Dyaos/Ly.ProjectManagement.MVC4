@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object name="AccountLoginLogRepository" type="Ly.ProjectManagement.DAL.AccountLoginLogRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="CrewRepository" type="Ly.ProjectManagement.DAL.CrewRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="DefemseRoomRepository" type="Ly.ProjectManagement.DAL.DefemseRoomRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="GradeRepository" type="Ly.ProjectManagement.DAL.GradeRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="GroupLeaderRepository" type="Ly.ProjectManagement.DAL.GroupLeaderRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="NoticeDefenseRepository" type="Ly.ProjectManagement.DAL.NoticeDefenseRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="OperationRecordRepository" type="Ly.ProjectManagement.DAL.OperationRecordRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ProjectModuleExamineRepository" type="Ly.ProjectManagement.DAL.ProjectModuleExamineRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ProjectModuleRepository" type="Ly.ProjectManagement.DAL.ProjectModuleRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ProjectPlanRepository" type="Ly.ProjectManagement.DAL.ProjectPlanRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ProjectRepository" type="Ly.ProjectManagement.DAL.ProjectRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ProjectTeamRepository" type="Ly.ProjectManagement.DAL.ProjectTeamRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ProjectTestRepository" type="Ly.ProjectManagement.DAL.ProjectTestRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="R_Teacher_SoftClassRepository" type="Ly.ProjectManagement.DAL.R_Teacher_SoftClassRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="RoleAuthRepository" type="Ly.ProjectManagement.DAL.RoleAuthorizationRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="RoleRepository" type="Ly.ProjectManagement.DAL.RoleRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="SoftClassRepository" type="Ly.ProjectManagement.DAL.SoftClassRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="StudentRepository" type="Ly.ProjectManagement.DAL.StudentRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="SysModuleBtnRepository" type="Ly.ProjectManagement.DAL.SysModuleButtonRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="SysModuleColumnRepository" type="Ly.ProjectManagement.DAL.SysModuleColumnRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="SysModuleFormRepository" type="Ly.ProjectManagement.DAL.SysModuleFormRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="SysModuleRepository" type="Ly.ProjectManagement.DAL.SysModuleRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="TeacherRepository" type="Ly.ProjectManagement.DAL.TeacherRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ItemDetailsRepository" type="Ly.ProjectManagement.DAL.ItemDetailsRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+  <object name="ItemsRepository" type="Ly.ProjectManagement.DAL.ItemsRepository,Ly.ProjectManagement.DAL" singleton="false">
+  </object>
+</objects>

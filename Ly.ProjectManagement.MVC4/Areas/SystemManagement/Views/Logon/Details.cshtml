@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+
+<script>
+    var details = {
+        getKeyValue: function () {
+            return $.request("keyValue");
+        },
+        initControl: function () {
+
+        },
+        ajaxData: function () {
+            if (!!details.getKeyValue()) {
+                $.ajax({
+                    url: "/SystemManagement/Logon/GetFormJson",
+                    data: { keyValue: details.getKeyValue() },
+                    method: "POST",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        $("#frmModule").formSerialize(data);
+                        $("#frmModule").find("input,.form-control,select").attr('readonly', 'readonly')
+                    }
+                })
+            }
+        }
+    };
+    $(function () {
+        details.ajaxData();
+    })
+</script>
+<form id="frmModule">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">基本信息</a></li>
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">登录时间</th>
+                    <td class="formValue">
+                        <input id="loginTime" name="loginTime" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">登录名称</th>
+                    <td class="formValue">
+                        <input id="loginName" name="loginName" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">Ip地址</th>
+                    <td class="formValue">
+                        <input id="loginIpAddress" name="loginIpAddress" type="text" class="form-control" placeholder="请输入等级" />
+                    </td>
+                    <th class="formTitle">Ip地址名称</th>
+                    <td class="formValue">
+                        <input id="loginIpAddressName" name="loginIpAddressName" type="text" class="form-control" placeholder="请输入等级" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" style="height: 35px;">选项</th>
+                    <td class="formValue" colspan="3" style="padding-top: 1px;">
+                        <div class="ckbox">
+                            <input id="loginResult" name="loginResult" type="checkbox"><label for="isMuen">是否登录成功</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        登录详情
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="loginDescription" name="loginDescription" class="form-control" style="height: 100px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

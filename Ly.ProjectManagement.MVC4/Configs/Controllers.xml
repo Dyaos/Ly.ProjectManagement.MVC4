@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--Login Begin-->
+  <object type="Ly.ProjectManagement.MVC4.Controllers.LoginController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="AccountLoginLogApp"/>
+    <constructor-arg index="1" ref="StudentApp"/>
+    <constructor-arg index="2" ref="TeacherApp"/>
+    <constructor-arg index="3" ref="RoleApp"/>
+  </object>
+  <!--Login End-->
+
+  <!--ClientData Begin-->
+  <object type="Ly.ProjectManagement.MVC4.Controllers.ClientDataController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="RoleAuthApp"/>
+  </object>
+  <!--ClientData End-->
+
+  <!--Base Begin-->
+  <object type="Ly.ProjectManagement.MVC4.Areas.BaseController,Ly.ProjectManagement.MVC4" singleton="false">
+    <property name ="recordApp" ref="OperationRecordApp"/>
+  </object>
+  <!--Base End-->
+
+  <!--SystemManagement Begin-->
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.ButtonController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="SysModuleBtnApp"/>
+    <constructor-arg index="1" ref="SysModuleApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.LogonController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="AccountLoginLogApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.ModuleController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="SysModuleApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.OperationController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="OperationRecordApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.RoleAuthorizeController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="SysModuleApp"/>
+    <constructor-arg index="1" ref="SysModuleBtnApp"/>
+    <constructor-arg index="2" ref="RoleAuthApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.RoleController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="RoleApp"/>
+    <constructor-arg index="1" ref="RoleAuthApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.ItemTypeController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="ItemsApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.SystemManagement.Controllers.ItemDataController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="ItemDetailsApp"/>
+  </object>
+  <!--SystemManagement End-->
+
+  <!--UserManagement Begin-->
+  <object type="Ly.ProjectManagement.MVC4.Areas.UserManagement.Controllers.ClassController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="SoftClassApp"/>
+    <constructor-arg index="1" ref="GradeApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.UserManagement.Controllers.CrewController,Ly.ProjectManagement.MVC4" singleton="false">
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.UserManagement.Controllers.GradeController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="GradeApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.UserManagement.Controllers.GroupLeaderController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="GroupLeaderApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.UserManagement.Controllers.InstructorController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="TeacherApp"/>
+  </object>
+  <object type="Ly.ProjectManagement.MVC4.Areas.UserManagement.Controllers.StudentInformationController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="StudentApp"/>
+  </object>
+  <!--UserManagement End-->
+  <!--ProjectManagement Begin-->
+  <object type="Ly.ProjectManagement.MVC4.Areas.ProjectManagement.Controllers.PlanController,Ly.ProjectManagement.MVC4" singleton="false">
+    <constructor-arg index="0" ref="ProjectPlanApp"/>
+  </object>
+  <!--ProjectManagement End-->
+</objects>
